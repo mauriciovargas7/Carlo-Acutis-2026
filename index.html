@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Os Milagres Eucarísticos | Exposição Internacional</title>
+    <meta
+      name="description"
+      content="Refatoração moderna da página de lista da Exposição Internacional dos Milagres Eucarísticos."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="backdrop backdrop-a" aria-hidden="true"></div>
+    <div class="backdrop backdrop-b" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Ir para o início">
+        <span class="brand-mark">CA</span>
+        <span class="brand-copy">
+          <strong>Milagres Eucarísticos</strong>
+          <small>Exposição internacional de Carlo Acutis</small>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a href="#prefacios">Prefácios</a>
+        <a href="#lista">Lista</a>
+        <a href="#contexto">Contexto</a>
+      </nav>
+    </header>
+
+    <main id="inicio" class="page">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Exposição internacional concebida e levada a cabo pelo servo de Deus Carlo Acutis</p>
+          <h1>Os Milagres Eucarísticos no Mundo</h1>
+          <p class="lede">
+            Uma versão refatorada da página clássica da exposição, com leitura mais clara,
+            navegação responsiva e a organização dos conteúdos principais em blocos editáveis.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#lista">Explorar a lista</a>
+            <a class="button button-secondary" href="#prefacios">Abrir prefácios</a>
+          </div>
+
+          <ul class="hero-stats" aria-label="Resumo da exposição">
+            <li>
+              <strong id="stat-miracles">136</strong>
+              <span>milagres catalogados</span>
+            </li>
+            <li>
+              <strong>166</strong>
+              <span>painéis no formato 60 x 80</span>
+            </li>
+            <li>
+              <strong>5</strong>
+              <span>continentes alcançados</span>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="hero-aside">
+          <div class="info-card">
+            <p class="card-kicker">Contato</p>
+            <h2>Associazione Amici di Carlo Acutis</h2>
+            <dl class="contact-list">
+              <div>
+                <dt>Telefone</dt>
+                <dd>0039.339.6340122</dd>
+              </div>
+              <div>
+                <dt>E-mail</dt>
+                <dd>info@carloacutis.com</dd>
+              </div>
+              <div>
+                <dt>Site</dt>
+                <dd>carloacutis.com</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="info-card accent">
+            <p class="card-kicker">Leitura guiada</p>
+            <h2>Use a busca para filtrar o catálogo</h2>
+            <p>
+              A lista abaixo pode ser pesquisada por país, cidade, santo, título ou palavra-chave.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="prefacios" class="section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Textos de apoio</p>
+            <h2>Prefácios e introduções</h2>
+          </div>
+          <p>
+            Os textos centrais da exposição foram preservados como páginas separadas, com leitura
+            mais confortável e estrutura consistente.
+          </p>
+        </div>
+
+        <div class="cards">
+          <a class="feature-card" href="pref_AC.html">
+            <span class="feature-tag">Prefácio</span>
+            <h3>Cardeal Angelo Comastri</h3>
+            <p>Reflexão sobre a força do testemunho eucarístico e a centralidade da Eucaristia.</p>
+          </a>
+          <a class="feature-card" href="pref_RM.html">
+            <span class="feature-tag">Apresentação</span>
+            <h3>Raffaello Martinelli</h3>
+            <p>Os limites, os riscos e os aspetos positivos dos milagres eucarísticos.</p>
+          </a>
+          <a class="feature-card" href="pref_RC.html">
+            <span class="feature-tag">Texto-base</span>
+            <h3>Padre Roberto Coggi, O.P.</h3>
+            <p>Uma síntese doutrinal sobre a presença real e a transubstanciação.</p>
+          </a>
+        </div>
+      </section>
+
+      <section id="lista" class="section">
+        <div class="section-head section-head-wide">
+          <div>
+            <p class="section-kicker">Biblioteca</p>
+            <h2>Lista de Milagres</h2>
+          </div>
+          <label class="search" for="search">
+            <span>Pesquisar</span>
+            <input id="search" type="search" placeholder="Ex.: Itália, São Tomás, Guadalupe..." />
+          </label>
+        </div>
+
+        <div id="directory" class="directory" aria-live="polite"></div>
+      </section>
+
+      <section id="contexto" class="section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Contexto</p>
+            <h2>Sobre a exposição</h2>
+          </div>
+          <p>
+            A exposição reúne fotografias, descrições históricas e painéis que ajudam a conhecer
+            os principais milagres eucarísticos reconhecidos pela Igreja.
+          </p>
+        </div>
+
+        <div id="supporting" class="supporting"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Refatoração local baseada na página
+        <a href="https://www.miracolieucaristici.org/pr/Liste/list.html" target="_blank" rel="noreferrer">
+          miracolieucaristici.org/pr/Liste/list.html
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>
