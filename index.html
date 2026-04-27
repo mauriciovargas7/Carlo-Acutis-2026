@@ -41,26 +41,29 @@
       width: min(1060px, calc(100% - 32px));
       margin: 0 auto 56px;
       overflow: hidden;
-      background: #ffffff;
+      background: transparent;
+      text-align: center;
     }
 
     .hero-carousel__track {
-      display: flex;
+      display: block;
       width: 100%;
     }
 
     .hero-carousel__slide {
-      flex: 0 0 100%;
+      margin: 0;
     }
 
     .hero-carousel__slide a {
       display: block;
+      max-width: 100%;
     }
 
     .hero-carousel__slide img {
       display: block;
       width: 100%;
       height: auto;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -225,5 +228,95 @@
         </a>
       </p>
     </footer>
-  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var contactTitle = Array.from(document.querySelectorAll("h2, h3")).find(function (title) {
+        return title.textContent.trim() === "Associazione Amici di Carlo Acutis";
+      });
+
+      if (!contactTitle) {
+        return;
+      }
+
+      var contactCard = contactTitle.closest("article, section, aside, div");
+
+      if (!contactCard) {
+        return;
+      }
+
+      contactCard.innerHTML = `
+        <p class="eyebrow">Contato</p>
+        <p>Para mais informações, contactar:</p>
+        <h2>Associazione Amici di Carlo Acutis</h2>
+        <p>Telefone: 0039.339.6340122</p>
+        <p>info@carloacutis.com - www.carloacutis.com</p>
+        <p>info@miracolieucaristici.org - www.miracolieucaristici.org</p>
+      `;
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var painelAUrl = "painel-a/index.html";
+      var painelAButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Painel A";
+      });
+
+      if (!painelAButton) {
+        return;
+      }
+
+      if (painelAButton.tagName.toLowerCase() === "a") {
+        painelAButton.href = painelAUrl;
+        painelAButton.target = "_blank";
+        painelAButton.rel = "noopener noreferrer";
+        return;
+      }
+
+      painelAButton.style.cursor = "pointer";
+      painelAButton.setAttribute("role", "link");
+      painelAButton.setAttribute("tabindex", "0");
+      painelAButton.addEventListener("click", function () {
+        window.open(painelAUrl, "_blank", "noopener,noreferrer");
+      });
+      painelAButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.open(painelAUrl, "_blank", "noopener,noreferrer");
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var painelBUrl = "painel-b/index.html";
+      var painelBButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Painel B";
+      });
+
+      if (!painelBButton) {
+        return;
+      }
+
+      if (painelBButton.tagName.toLowerCase() === "a") {
+        painelBButton.href = painelBUrl;
+        painelBButton.target = "_self";
+        painelBButton.removeAttribute("rel");
+        return;
+      }
+
+      painelBButton.style.cursor = "pointer";
+      painelBButton.setAttribute("role", "link");
+      painelBButton.setAttribute("tabindex", "0");
+      painelBButton.addEventListener("click", function () {
+        window.location.href = painelBUrl;
+      });
+      painelBButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = painelBUrl;
+        }
+      });
+    });
+  </script>
+</body>
 </html>
