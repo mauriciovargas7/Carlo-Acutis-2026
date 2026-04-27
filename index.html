@@ -10,7 +10,60 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-  </head>
+  <style>
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 45%, #334155 100%);
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    header,
+    .header,
+    .site-header {
+      min-height: 0;
+      background: transparent;
+      color: inherit;
+      text-shadow: none;
+    }
+
+    .navbar {
+      background: transparent;
+      position: static;
+    }
+
+    .hero-carousel {
+      width: min(1060px, calc(100% - 32px));
+      margin: 0 auto 56px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .hero-carousel__track {
+      display: flex;
+      width: 100%;
+    }
+
+    .hero-carousel__slide {
+      flex: 0 0 100%;
+    }
+
+    .hero-carousel__slide a {
+      display: block;
+    }
+
+    .hero-carousel__slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
   <body>
     <div class="backdrop backdrop-a" aria-hidden="true"></div>
     <div class="backdrop backdrop-b" aria-hidden="true"></div>
@@ -29,7 +82,17 @@
         <a href="#lista">Lista</a>
         <a href="#contexto">Contexto</a>
       </nav>
-    </header>
+</header>
+
+<section class="hero-carousel" aria-label="Imagens da exposição">
+  <div class="hero-carousel__track">
+    <figure class="hero-carousel__slide">
+      <a href="https://www.miracolieucaristici.org/pr/Liste/list.html" target="_blank" rel="noopener noreferrer">
+        <img src="Background.jpg" alt="Lista de Milagres - Os Milagres Eucarísticos no Mundo">
+      </a>
+    </figure>
+  </div>
+</section>
 
     <main id="inicio" class="page">
       <section class="hero">
