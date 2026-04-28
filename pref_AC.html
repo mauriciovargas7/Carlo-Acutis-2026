@@ -104,6 +104,95 @@
       }
     }
   </style>
+  <style>
+    article,
+    .content-card,
+    main > section {
+      max-width: 980px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    article > h1,
+    main h1,
+    .content-card > h1 {
+      text-align: center !important;
+      max-width: 920px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    article > .eyebrow,
+    .content-card > .eyebrow {
+      text-align: left !important;
+    }
+
+    article p,
+    article li,
+    section p,
+    section li,
+    .content-card p,
+    .content-card li {
+      max-width: 760px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      text-align: justify !important;
+      line-height: 1.8 !important;
+    }
+
+    article h2,
+    article h3,
+    section h2,
+    section h3,
+    .content-card h2,
+    .content-card h3 {
+      max-width: 760px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      color: #fbf7ef !important;
+      text-align: center !important;
+    }
+
+    article ul,
+    article ol,
+    section ul,
+    section ol,
+    .content-card ul,
+    .content-card ol {
+      max-width: 760px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: 1.35rem !important;
+      text-align: left !important;
+      list-style-position: outside !important;
+    }
+
+    article li,
+    section li,
+    .content-card li {
+      max-width: none !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      text-align: left !important;
+    }
+
+    @media (max-width: 760px) {
+      article,
+      .content-card,
+      main > section {
+        max-width: calc(100vw - 32px) !important;
+      }
+
+      article p,
+      article li,
+      section p,
+      section li,
+      .content-card p,
+      .content-card li {
+        max-width: 100% !important;
+      }
+    }
+  </style>
 </head>
   <body>
     <header class="topbar">
