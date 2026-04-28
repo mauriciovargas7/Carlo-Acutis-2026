@@ -112,6 +112,75 @@
       }
     }
   </style>
+  <style>
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    img,
+    iframe {
+      max-width: 100%;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        min-width: 0;
+      }
+
+      main,
+      section,
+      article,
+      .page,
+      .container,
+      .content,
+      .content-card,
+      .pref-hero-image,
+      .pref-switcher,
+      .reference-content,
+      .reference-section {
+        width: calc(100vw - 32px) !important;
+        max-width: calc(100vw - 32px) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .topbar,
+      header,
+      header nav {
+        width: calc(100vw - 32px) !important;
+        max-width: calc(100vw - 32px) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .pref-hero-image img {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .pref-switcher {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+
+      .pref-switcher a {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: clamp(2.25rem, 13vw, 3.5rem) !important;
+        overflow-wrap: anywhere;
+      }
+
+      h2 {
+        overflow-wrap: anywhere;
+      }
+    }
+  </style>
 </head>
   <body>
     <header class="topbar">
