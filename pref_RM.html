@@ -5,7 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Apresentação | Raffaello Martinelli</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
+  <style>
+    .dots-menu { position: relative; margin-left: auto; }
+    .dots-menu__button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      height: 44px; padding: 0 16px; border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px; color: #fbf7ef; background: rgba(255,255,255,.06);
+      font-weight: 700; cursor: pointer;
+    }
+    .dots-menu__button:hover, .dots-menu__button:focus-visible { border-color: rgba(214,173,85,.72); outline: none; }
+    .dots-menu__icon {
+      display: block; width: 18px; height: 2px; border-radius: 999px;
+      background: currentColor; box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
+    }
+    .dots-menu__text { font-size: .95rem; }
+    .dots-menu__panel {
+      position: absolute; top: calc(100% + 10px); right: 0; z-index: 20; display: none;
+      min-width: 190px; padding: 8px; border: 1px solid rgba(214,173,85,.32);
+      border-radius: 14px; background: #101a20; box-shadow: 0 22px 54px rgba(0,0,0,.3);
+    }
+    .dots-menu.is-open .dots-menu__panel { display: grid; gap: 4px; }
+    .dots-menu__panel a {
+      display: block; padding: 11px 12px; border-radius: 10px; color: #fbf7ef;
+      text-decoration: none; white-space: nowrap;
+    }
+    .dots-menu__panel a:hover, .dots-menu__panel a:focus-visible { background: rgba(214,173,85,.16); outline: none; }
+  </style>
+  <style>
+    .pref-hero-image {
+      width: min(1060px, calc(100% - 32px));
+      margin: 0 auto 56px;
+    }
+
+    .pref-hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+  <style>
+    main p,
+    article p,
+    section p {
+      text-align: justify;
+      line-height: 1.7;
+    }
+  </style>
+  <style>
+    .pref-switcher {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto 28px;
+    }
+
+    .pref-switcher a {
+      display: block;
+      padding: 18px 20px;
+      border: 1px solid rgba(214, 173, 85, 0.32);
+      border-radius: 14px;
+      color: #fbf7ef;
+      background: rgba(16, 26, 32, 0.84);
+      text-decoration: none;
+    }
+
+    .pref-switcher span {
+      display: block;
+      color: #d6ad55;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .pref-switcher strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 820px) {
+      .pref-switcher {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
   <body>
     <header class="topbar">
       <a class="brand" href="index.html">
@@ -24,10 +109,10 @@
     <main class="page">
       <article class="info-card" style="padding: 28px;">
         <p class="eyebrow">Apresentação</p>
-        <h1 class="hero-title">Os Milagres Eucarísticos: limitações e aspetos positivos</h1>
+        <h1 class="hero-title">Os Milagres Eucarísticos: limitações e aspectos positivos</h1>
         <p class="lede">
           Apresento, antes de mais, algumas limitações que dizem respeito aos Milagres
-          Eucarísticos e, seguidamente, indico os aspetos positivos a valorizar:
+          Eucarísticos e, seguidamente, indico os aspectos positivos a valorizar:
         </p>
         <p class="lede">
           1) Limitações: a nossa fé não se baseia em Milagres Eucarísticos, mas no anúncio de
@@ -83,5 +168,528 @@
         </p>
       </article>
     </main>
-  </body>
+  <style>
+    .reference-content {
+      display: grid;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .reference-section {
+      border-top: 1px solid rgba(214, 173, 85, 0.26);
+      padding-top: 24px;
+    }
+
+    .reference-section h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.75rem, 4vw, 2.7rem);
+    }
+
+    .reference-section h3 {
+      margin: 22px 0 10px;
+      color: #d6ad55;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .reference-section p,
+    .reference-section li {
+      max-width: 860px;
+      color: #efe8dc;
+      line-height: 1.8;
+    }
+
+    .reference-section ul {
+      display: grid;
+      gap: 10px;
+      margin: 14px 0 0;
+      padding-left: 22px;
+    }
+
+    .reference-note {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border: 1px solid rgba(214, 173, 85, 0.3);
+      border-radius: 14px;
+      background: rgba(214, 173, 85, 0.08);
+      color: #efe8dc;
+    }
+
+    .reference-frame {
+      width: 100%;
+      height: 760px;
+      border: 1px solid rgba(214, 173, 85, 0.28);
+      border-radius: 14px;
+      background: #ffffff;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var title = Array.from(document.querySelectorAll("h1")).find(function (heading) {
+        return heading.textContent.includes("Os Milagres Eucarísticos");
+      });
+
+      if (!title) {
+        return;
+      }
+
+      var article = title.closest("article, section, main, div");
+
+      if (!article) {
+        return;
+      }
+
+      article.innerHTML = `
+        <p class="eyebrow">Apresentação</p>
+        <h1>Os Milagres Eucarísticos: limitações e aspectos positivos</h1>
+
+        <div class="reference-content">
+          <section class="reference-section">
+            <p>
+              Esta apresentação reúne os pontos centrais do texto de referência sobre os Milagres
+              Eucarísticos. Antes de valorizá-los, é importante compreender os seus limites: a fé
+              cristã não nasce do extraordinário, mas do anúncio de Cristo, acolhido pela ação da
+              graça e pela escuta da Palavra de Deus.
+            </p>
+            <p>
+              A fé na Eucaristia está fundada em Jesus Cristo, que anunciou este mistério e o
+              instituiu na Última Ceia. Desde então, a Igreja celebra a Eucaristia em obediência ao
+              mandato do Senhor, especialmente no domingo, dia da Ressurreição.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>Limitações</h2>
+            <p>
+              Nenhum cristão é obrigado a acreditar em um Milagre Eucarístico, mesmo quando a Igreja
+              reconhece a sua autenticidade. Esses acontecimentos pertencem ao campo das graças
+              extraordinárias e não substituem a Revelação pública nem a vida sacramental ordinária.
+            </p>
+            <p>
+              A prudência da Igreja diante de fenômenos extraordinários é necessária. Ela evita que
+              se atribua ao milagre um lugar maior do que a própria Eucaristia, que se enfraqueça o
+              valor da Missa dominical ou que se acolham sem discernimento sugestões, enganos ou
+              interpretações precipitadas.
+            </p>
+            <h3>Quando um fato é aprovado</h3>
+            <ul>
+              <li>Ele não deve conter nada contrário à fé e aos bons costumes.</li>
+              <li>Pode ser tornado público de modo legítimo.</li>
+              <li>Os fiéis podem acolhê-lo com prudência e respeito.</li>
+            </ul>
+          </section>
+
+          <section class="reference-section">
+            <h2>Aspectos positivos</h2>
+            <p>
+              Os Milagres Eucarísticos podem ajudar a fé quando permanecem orientados para Cristo e
+              para a Eucaristia. Eles não acrescentam uma nova verdade ao dom definitivo recebido em
+              Cristo, mas podem despertar admiração, conversão, catequese e maior amor ao mistério
+              eucarístico.
+            </p>
+            <ul>
+              <li>Convidam a olhar além do visível e do sensível.</li>
+              <li>Ajudam a falar da Revelação pública e da sua centralidade para a Igreja.</li>
+              <li>Podem reavivar a fé de crentes e aproximar os que ainda não creem.</li>
+              <li>Chamam à adoração, ao conhecimento e ao amor pela Eucaristia.</li>
+            </ul>
+          </section>
+
+          <section class="reference-section">
+            <h2>Revelação pública</h2>
+            <p>
+              A Revelação pública é a ação de Deus na história da salvação, testemunhada nas
+              Escrituras e plenamente realizada em Jesus Cristo. Ela é destinada a todos os povos,
+              lugares e tempos, e se distingue essencialmente das revelações privadas.
+            </p>
+            <p>
+              Como Cristo é a Palavra definitiva do Pai, não se espera uma nova Revelação pública
+              antes da sua manifestação gloriosa. A missão da Igreja é guardar, interpretar,
+              aprofundar e testemunhar essa Revelação com a assistência do Espírito Santo.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>A Eucaristia como grande milagre quotidiano</h2>
+            <p>
+              O texto de referência recorda que o milagre maior, verdadeiro e inesgotável, acontece
+              cada vez que a Eucaristia é celebrada. Nela, Cristo está presente de modo verdadeiro,
+              real e substancial: Corpo, Sangue, Alma e Divindade.
+            </p>
+            <p>
+              Por isso, os Milagres Eucarísticos devem conduzir sempre ao centro: a Santa Missa, a
+              adoração, a vida sacramental, a conversão e a comunhão com Cristo na Igreja.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>Santuários e piedade popular</h2>
+            <p>
+              Os santuários ligados a Milagres Eucarísticos reconhecidos pela Igreja podem tornar-se
+              lugares de oração, catequese, reconciliação, espiritualidade e caridade. Também se
+              relacionam com a piedade popular, oferecendo novos impulsos à devoção, sempre em
+              harmonia com a liturgia.
+            </p>
+            <p>
+              Texto de referência atribuído a S. Em.ª Rev.mo Mons. Raffaello Martinelli, Reitor do
+              Colégio Eclesiástico Internacional San Carlo e Oficial da Congregação para a Doutrina
+              da Fé.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>Texto integral da fonte original</h2>
+            <p>
+              Abaixo está a visualização do conteúdo integral diretamente do site de referência,
+              preservando a fonte oficial e mantendo a consulta completa dentro desta página.
+            </p>
+            <iframe
+              class="reference-frame"
+              src="https://www.miracolieucaristici.org/pr/Liste/pref_RM.html"
+              title="Texto integral da apresentação no site de referência">
+            </iframe>
+          </section>
+
+          <p class="reference-note">
+            A versão local acima organiza e indexa o conteúdo para leitura no projeto. Fonte integral:
+            <a href="https://www.miracolieucaristici.org/pr/Liste/pref_RM.html" target="_blank" rel="noopener noreferrer">
+              miracolieucaristici.org/pr/Liste/pref_RM.html
+            </a>
+          </p>
+        </div>
+      `;
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var title = Array.from(document.querySelectorAll("h1")).find(function (heading) {
+        return heading.textContent.includes("Os Milagres Eucarísticos");
+      });
+
+      if (!title) {
+        return;
+      }
+
+      var article = title.closest("article, section, main, div");
+
+      if (!article) {
+        return;
+      }
+
+      article.innerHTML = `
+        <p class="eyebrow">Apresentação</p>
+        <h1>Os Milagres Eucarísticos: limitações e aspectos positivos</h1>
+
+        <div class="reference-content">
+          <section class="reference-section">
+            <h2>Introdução</h2>
+            <p>
+              Esta página organiza, em versão local refatorada, o conteúdo da apresentação sobre os
+              Milagres Eucarísticos. O texto parte de uma distinção essencial: antes de valorizar os
+              sinais extraordinários, é preciso reconhecer os seus limites dentro da fé católica.
+            </p>
+            <p>
+              A fé cristã não se apoia primariamente em milagres particulares, mas no anúncio de
+              Cristo Nosso Senhor, acolhido pela escuta da Palavra e pela ação do Espírito Santo. A
+              Eucaristia está no centro porque foi anunciada por Cristo e instituída na Última Ceia,
+              quando Ele celebrou com os apóstolos na Quinta-feira Santa.
+            </p>
+            <p>
+              Desde então, fiel ao mandato do Senhor, a Igreja celebra a Eucaristia com fé e devoção,
+              especialmente no domingo, dia da Ressurreição, e continuará a celebrá-la até a volta de
+              Cristo.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>1. Limitações</h2>
+            <p>
+              Nenhum cristão é obrigado a acreditar em um Milagre Eucarístico, ainda que ele tenha
+              recebido reconhecimento eclesial. Esses acontecimentos não pertencem ao depósito da fé
+              como verdades necessárias para todos os fiéis, mas ao campo dos sinais particulares que
+              podem auxiliar a vida espiritual.
+            </p>
+            <p>
+              O fiel conserva liberdade de juízo diante das revelações privadas e dos fenômenos
+              extraordinários, mesmo quando aprovados. A aprovação da Igreja não força a consciência,
+              mas indica que determinado fato pode ser acolhido com prudência, sem contradição com a
+              fé e os bons costumes.
+            </p>
+            <p>
+              Ao mesmo tempo, o crente não deve excluir, em princípio, que Deus possa intervir de
+              modo extraordinário em lugares, pessoas, acontecimentos e momentos concretos. A tarefa
+              delicada é discernir se, em cada caso, existe uma intervenção autêntica de Deus.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>2. Prudência da Igreja</h2>
+            <p>
+              A prudência da Igreja diante de fenômenos extraordinários é plenamente justificada.
+              Ela protege os fiéis contra interpretações apressadas e contra a tentação de deslocar
+              o centro da fé para aquilo que é raro, sensível ou espetacular.
+            </p>
+            <h3>Riscos apontados</h3>
+            <ul>
+              <li>Supor que Deus teria deixado incompleta a instituição da Eucaristia.</li>
+              <li>Colocar a Eucaristia dominical em segundo plano.</li>
+              <li>Dar importância exagerada ao extraordinário, diminuindo o valor da vida cristã cotidiana.</li>
+              <li>Desvalorizar a vida ordinária do fiel e da Igreja.</li>
+              <li>Acolher com facilidade sugestões, fraudes ou relatos sem discernimento.</li>
+            </ul>
+            <h3>Elementos de uma aprovação eclesial</h3>
+            <ul>
+              <li>O fato não contém elementos contrários à fé e aos bons costumes.</li>
+              <li>É lícito torná-lo público.</li>
+              <li>Os fiéis podem aproximar-se dele de maneira prudente e respeitosa.</li>
+            </ul>
+            <p>
+              Assim, ainda que ninguém seja obrigado a crer nesses acontecimentos, o fiel é chamado
+              a uma atitude respeitosa quando a autenticidade de um Milagre Eucarístico foi
+              reconhecida pela Igreja.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>3. Aspetos positivos</h2>
+            <p>
+              Os Milagres Eucarísticos podem ser uma ajuda útil e proveitosa para a fé. O seu valor
+              está em apontar para Cristo e para a Eucaristia, nunca em se tornarem autônomos ou em
+              competir com a Missa, a Palavra de Deus e a vida sacramental.
+            </p>
+            <h3>Além do visível</h3>
+            <p>
+              Esses sinais podem ajudar o fiel a ultrapassar o limite do visível e do sensível,
+              abrindo espaço para reconhecer a existência de uma realidade que excede a explicação
+              puramente humana. Quando reconhecido como extraordinário, o milagre não se reduz a
+              dados científicos ou raciocínios comuns, mas desafia o coração humano a admitir o
+              mistério.
+            </p>
+            <h3>Catequese e aprofundamento</h3>
+            <p>
+              Eles também oferecem uma oportunidade para falar, na catequese, sobre a Revelação
+              pública, a sua importância para a Igreja e a diferença entre a fé recebida dos
+              apóstolos e os sinais particulares surgidos ao longo da história.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>4. Revelação pública</h2>
+            <p>
+              Os Milagres Eucarísticos referem-se a acontecimentos extraordinários posteriores à
+              instituição da Eucaristia por Cristo e posteriores ao fim do Novo Testamento. Por isso,
+              não constituem uma nova Revelação pública.
+            </p>
+            <h3>Características</h3>
+            <ul>
+              <li>A Revelação pública foi realizada progressivamente por Deus na história da salvação.</li>
+              <li>Passa por Abraão, pelos profetas e chega à plenitude em Jesus Cristo.</li>
+              <li>Está testemunhada no Antigo e no Novo Testamento.</li>
+              <li>Destina-se a todos os homens, de todos os lugares e épocas.</li>
+              <li>Difere essencialmente das revelações privadas.</li>
+              <li>Está concluída em Cristo, ao qual a Igreja permanece vinculada.</li>
+            </ul>
+            <p>
+              Jesus Cristo é o mediador e a plenitude da Revelação. Nele, Deus disse de modo
+              definitivo aquilo que quis revelar para a salvação. A fé da Igreja deve recolher,
+              aprofundar e testemunhar esse significado ao longo dos séculos, mas não espera uma
+              nova Revelação pública que substitua ou complete Cristo.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>5. Implicações para os cristãos</h2>
+            <p>
+              A conclusão da Revelação pública tem consequências diretas para a vida cristã. O Deus
+              dos cristãos é crível e fiel com base nas Escrituras e na Palavra entregue à Igreja,
+              não em virtude de mensagens posteriores recebidas por indivíduos.
+            </p>
+            <ul>
+              <li>Não se deve esperar uma manifestação nova que ultrapasse Cristo.</li>
+              <li>A Igreja está vinculada ao acontecimento único da história da salvação.</li>
+              <li>A sua missão é guardar, interpretar, aprofundar e testemunhar a Revelação pública.</li>
+              <li>A assistência do Espírito Santo conduz a Igreja a compreender sempre melhor o tesouro recebido.</li>
+              <li>A Revelação pública exige fé, pois Deus fala por palavras humanas e pela mediação viva da Igreja.</li>
+            </ul>
+            <p>
+              Embora a Revelação esteja completa, ela não está totalmente explicada. Cabe à fé
+              cristã conhecê-la melhor, aprofundá-la, encarná-la continuamente e testemunhá-la com
+              fidelidade e coragem.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>6. Milagres Eucarísticos a serviço da fé</h2>
+            <p>
+              Os Milagres Eucarísticos podem ajudar a conhecer e viver a fé quando permanecem
+              orientados estritamente para Cristo e para Cristo-Eucaristia. Eles podem reavivar a fé
+              subjetiva de crentes e também tocar aqueles que ainda não creem.
+            </p>
+            <p>
+              Não acrescentam nada ao dom único e definitivo de Cristo-Eucaristia. Podem, porém,
+              tornar-se um humilde recordatório, uma ajuda oferecida à fé, uma ocasião de
+              aprofundamento e um convite a redescobrir o mistério eucarístico.
+            </p>
+            <p>
+              Por isso, eles convidam a conhecer, apreciar, adorar e amar a Eucaristia. Quando bem
+              compreendidos, conduzem à Missa, à adoração, à reconciliação, à comunhão e à vida
+              cristã concreta.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>7. A Eucaristia: fonte e cume</h2>
+            <p>
+              A Eucaristia é fonte e cume de toda a vida cristã. Nela se encontram a ação
+              santificadora de Deus para conosco e o culto que a Igreja presta a Deus. Ela contém o
+              bem espiritual da Igreja: o próprio Cristo, nossa Páscoa.
+            </p>
+            <p>
+              Pela celebração eucarística, a Igreja participa da liturgia do Céu e antecipa a vida
+              eterna. A comunhão da vida divina e a unidade do povo de Deus são expressas e
+              produzidas na Eucaristia.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>8. O grande milagre quotidiano</h2>
+            <p>
+              O texto recorda que a Eucaristia é o verdadeiro, grande e inesgotável milagre
+              cotidiano. Ela é sacramento instituído por Cristo e confiado à Igreja, sinal sensível e
+              eficaz da graça, no qual é concedida a vida divina.
+            </p>
+            <p>
+              A Eucaristia é também o sacramento dominical por excelência. O milagre mais próximo e
+              acessível aos fiéis acontece nas igrejas quando se celebra a Santa Missa: ali se torna
+              presente o sacrifício do Corpo e do Sangue do Senhor, memorial da sua morte e
+              ressurreição.
+            </p>
+            <p>
+              Cristo está presente na Eucaristia de modo verdadeiro, real e substancial, com seu
+              Corpo, Sangue, Alma e Divindade. Ao tornar presente o sacrifício da Cruz, Ele se dá
+              como alimento e bebida, guiando o povo de Deus na peregrinação rumo à pátria eterna.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>9. Santuários e piedade popular</h2>
+            <p>
+              Os santuários ligados aos Milagres Eucarísticos reconhecidos pela Igreja devem ser
+              valorizados como lugares de celebração litúrgica, especialmente do sacramento da
+              Reconciliação, e também como lugares de oração, espiritualidade eucarística, catequese
+              e caridade.
+            </p>
+            <p>
+              Os Milagres Eucarísticos também se relacionam com a piedade popular. Muitas vezes
+              nascem em ambientes de devoção e, ao mesmo tempo, oferecem novos impulsos a essa
+              devoção. Porém, tudo deve permanecer em harmonia com a liturgia, que é a forma vital da
+              Igreja alimentada diretamente pelo Evangelho.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>Autoria da apresentação</h2>
+            <p>
+              O texto de referência é atribuído a S. Em.ª Rev.mo Mons. Raffaello Martinelli, Reitor
+              do Colégio Eclesiástico Internacional San Carlo e Oficial da Congregação para a
+              Doutrina da Fé.
+            </p>
+          </section>
+
+          <section class="reference-section">
+            <h2>Texto integral da fonte original</h2>
+            <p>
+              Para consulta literal do texto publicado, a página original permanece incorporada
+              abaixo e também está disponível pelo link da fonte.
+            </p>
+            <iframe
+              class="reference-frame"
+              src="https://www.miracolieucaristici.org/pr/Liste/pref_RM.html"
+              title="Texto integral da apresentação no site de referência">
+            </iframe>
+          </section>
+
+          <p class="reference-note">
+            Conteúdo local organizado a partir da fonte original:
+            <a href="https://www.miracolieucaristici.org/pr/Liste/pref_RM.html" target="_blank" rel="noopener noreferrer">
+              miracolieucaristici.org/pr/Liste/pref_RM.html
+            </a>
+          </p>
+        </div>
+      `;
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".dots-menu")) return;
+      var nav = document.querySelector(".topbar, header nav, nav, header");
+      if (!nav) return;
+      var menu = document.createElement("div");
+      var button = document.createElement("button");
+      var panel = document.createElement("div");
+      menu.className = "dots-menu";
+      button.className = "dots-menu__button";
+      button.type = "button";
+      button.setAttribute("aria-label", "Abrir menu");
+      button.setAttribute("aria-expanded", "false");
+      button.innerHTML = '<span class="dots-menu__icon"></span><span class="dots-menu__text">Menu</span>';
+      panel.className = "dots-menu__panel";
+      [["Início", "index.html"], ["Biografia", "biografia.html"], ["Contatos", "contatos.html"], ["Prefácios", "pref_RM.html"], ["Lista", "index.html#lista"], ["Contexto", "index.html#contexto"]].forEach(function (item) {
+        var link = document.createElement("a");
+        link.textContent = item[0];
+        link.href = item[1];
+        panel.appendChild(link);
+      });
+      menu.appendChild(button);
+      menu.appendChild(panel);
+      nav.appendChild(menu);
+      button.addEventListener("click", function () {
+        var isOpen = menu.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(isOpen));
+      });
+      document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target)) {
+          menu.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".pref-hero-image")) return;
+
+      var topbar = document.querySelector(".topbar");
+      var header = document.querySelector("header");
+      var anchor = topbar || header;
+
+      if (!anchor || !anchor.parentElement) return;
+
+      var imageBlock = document.createElement("div");
+      imageBlock.className = "pref-hero-image";
+      imageBlock.innerHTML = '<img src="Background.jpg" alt="Lista de Milagres - Os Milagres Eucarísticos no Mundo">';
+      anchor.parentElement.insertBefore(imageBlock, anchor.nextSibling);
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".pref-switcher")) return;
+
+      var content = document.querySelector("article, main section, .content-card");
+      if (!content || !content.parentElement) return;
+
+      var switcher = document.createElement("nav");
+      switcher.className = "pref-switcher";
+      switcher.setAttribute("aria-label", "Prefácios");
+      switcher.innerHTML = `
+        <a href="pref_AC.html"><span>Prefácio</span><strong>Cardeal Angelo Comastri</strong></a>
+        <a href="pref_RM.html"><span>Apresentação</span><strong>Raffaello Martinelli</strong></a>
+        <a href="pref_RC.html"><span>Os Milagres Eucarísticos</span><strong>Padre Roberto Coggi, O.P.</strong></a>
+      `;
+      content.parentElement.insertBefore(switcher, content);
+    });
+  </script>
+</body>
 </html>

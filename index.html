@@ -66,6 +66,80 @@
       margin: 0 auto;
     }
   </style>
+  <style>
+    .dots-menu {
+      position: relative;
+      margin-left: auto;
+    }
+
+    .dots-menu__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 44px;
+      padding: 0 16px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: #fbf7ef;
+      background: rgba(255, 255, 255, 0.06);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .dots-menu__icon {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
+    }
+
+    .dots-menu__text {
+      font-size: 0.95rem;
+    }
+
+    .dots-menu__button:hover,
+    .dots-menu__button:focus-visible {
+      border-color: rgba(214, 173, 85, 0.72);
+      outline: none;
+    }
+
+    .dots-menu__panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      z-index: 20;
+      display: none;
+      min-width: 180px;
+      padding: 8px;
+      border: 1px solid rgba(214, 173, 85, 0.32);
+      border-radius: 14px;
+      background: #101a20;
+      box-shadow: 0 22px 54px rgba(0, 0, 0, 0.3);
+    }
+
+    .dots-menu.is-open .dots-menu__panel {
+      display: grid;
+      gap: 4px;
+    }
+
+    .dots-menu__panel a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 10px;
+      color: #fbf7ef;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .dots-menu__panel a:hover,
+    .dots-menu__panel a:focus-visible {
+      background: rgba(214, 173, 85, 0.16);
+      outline: none;
+    }
+  </style>
 </head>
   <body>
     <div class="backdrop backdrop-a" aria-hidden="true"></div>
@@ -182,7 +256,7 @@
             <p>Os limites, os riscos e os aspetos positivos dos milagres eucarísticos.</p>
           </a>
           <a class="feature-card" href="pref_RC.html">
-            <span class="feature-tag">Texto-base</span>
+            <span class="feature-tag">Os Milagres Eucarísticos</span>
             <h3>Padre Roberto Coggi, O.P.</h3>
             <p>Uma síntese doutrinal sobre a presença real e a transubstanciação.</p>
           </a>
@@ -316,6 +390,169 @@
           window.location.href = painelBUrl;
         }
       });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var labels = ["Prefácios", "Lista", "Contexto"];
+      var links = labels
+        .map(function (label) {
+          return Array.from(document.querySelectorAll("a")).find(function (link) {
+            return link.textContent.trim() === label;
+          });
+        })
+        .filter(Boolean);
+
+      if (links.length === 0 || document.querySelector(".dots-menu")) {
+        return;
+      }
+
+      var parent = links[0].parentElement;
+      var menu = document.createElement("div");
+      var button = document.createElement("button");
+      var panel = document.createElement("div");
+
+      menu.className = "dots-menu";
+      button.className = "dots-menu__button";
+      button.type = "button";
+      button.setAttribute("aria-label", "Abrir menu");
+      button.setAttribute("aria-expanded", "false");
+      button.innerHTML = '<span class="dots-menu__icon"></span><span class="dots-menu__text">Menu</span>';
+      panel.className = "dots-menu__panel";
+
+      links.forEach(function (link) {
+        panel.appendChild(link);
+      });
+
+      menu.appendChild(button);
+      menu.appendChild(panel);
+      parent.appendChild(menu);
+
+      button.addEventListener("click", function () {
+        var isOpen = menu.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.addEventListener("click", function (event) {
+        if (menu.contains(event.target)) {
+          return;
+        }
+
+        menu.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          menu.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+          button.focus();
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var argentinaUrl = "argentina/buenos-aires/index.html";
+      var argentinaButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Buenos Aires, 1922–1994–1996" ||
+          element.textContent.trim() === "Buenos Aires, 1922-1994-1996";
+      });
+
+      if (!argentinaButton) {
+        return;
+      }
+
+      if (argentinaButton.tagName.toLowerCase() === "a") {
+        argentinaButton.href = argentinaUrl;
+        argentinaButton.target = "_self";
+        argentinaButton.removeAttribute("rel");
+        return;
+      }
+
+      argentinaButton.style.cursor = "pointer";
+      argentinaButton.setAttribute("role", "link");
+      argentinaButton.setAttribute("tabindex", "0");
+      argentinaButton.addEventListener("click", function () {
+        window.location.href = argentinaUrl;
+      });
+      argentinaButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = argentinaUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var austriaPages = [
+        {
+          labels: ["Fiecht, 1310"],
+          url: "austria/fiecht/index.html"
+        },
+        {
+          labels: ["Seefeld, 1384"],
+          url: "austria/seefeld/index.html"
+        },
+        {
+          labels: ["Weiten-Raxendorf, 1411"],
+          url: "austria/weiten-raxendorf/index.html"
+        }
+      ];
+
+      austriaPages.forEach(function (page) {
+        var item = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+          return page.labels.includes(element.textContent.trim());
+        });
+
+        if (!item) {
+          return;
+        }
+
+        if (item.tagName.toLowerCase() === "a") {
+          item.href = page.url;
+          item.target = "_self";
+          item.removeAttribute("rel");
+          return;
+        }
+
+        item.style.cursor = "pointer";
+        item.setAttribute("role", "link");
+        item.setAttribute("tabindex", "0");
+        item.addEventListener("click", function () {
+          window.location.href = page.url;
+        });
+        item.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            window.location.href = page.url;
+          }
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      window.setTimeout(function () {
+        var panel = document.querySelector(".dots-menu__panel");
+
+        if (!panel || Array.from(panel.querySelectorAll("a")).some(function (link) {
+          return link.textContent.trim() === "Biografia";
+        })) {
+          return;
+        }
+
+        var link = document.createElement("a");
+        link.href = "biografia.html";
+        link.textContent = "Biografia";
+        panel.insertBefore(link, panel.firstChild ? panel.firstChild.nextSibling : null);
+
+        var contactLink = document.createElement("a");
+        contactLink.href = "contatos.html";
+        contactLink.textContent = "Contatos";
+        panel.insertBefore(contactLink, link.nextSibling);
+      }, 0);
     });
   </script>
 </body>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiecht, 1310 | Milagres Eucarísticos</title>
+  <style>
+    :root { --bg:#132033; --gold:#d6ad55; --text:#fbf7ef; --muted:#d7d0c4; --line:rgba(214,173,85,.28); }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--text); background:radial-gradient(circle at top left,rgba(214,173,85,.16),transparent 30rem),linear-gradient(135deg,#0f172a 0%,var(--bg) 48%,#26394d 100%); min-height:100vh; }
+    a { color: inherit; }
+    .page { width:min(1120px,calc(100% - 32px)); margin:0 auto; padding:32px 0 64px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:56px; }
+    .brand { display:flex; align-items:center; gap:14px; text-decoration:none; }
+    .mark { display:grid; place-items:center; width:52px; height:52px; border:1px solid rgba(214,173,85,.7); border-radius:18px; color:var(--gold); font-weight:800; background:rgba(255,255,255,.1); }
+    .brand-text strong { display:block; font-family:Georgia,"Times New Roman",serif; font-size:1.05rem; }
+    .brand-subtitle { display:block; color:var(--muted); font-size:.9rem; margin-top:4px; }
+    .dots-menu { position:relative; margin-left:auto; }
+    .dots-menu__button { display:inline-flex; align-items:center; justify-content:center; gap:10px; height:44px; padding:0 16px; border:1px solid rgba(255,255,255,.22); border-radius:999px; color:#fbf7ef; background:rgba(255,255,255,.06); font-weight:700; cursor:pointer; }
+    .dots-menu__button:hover,.dots-menu__button:focus-visible { border-color:rgba(214,173,85,.72); outline:none; }
+    .dots-menu__icon { display:block; width:18px; height:2px; border-radius:999px; background:currentColor; box-shadow:0 -6px 0 currentColor,0 6px 0 currentColor; }
+    .dots-menu__panel { position:absolute; top:calc(100% + 10px); right:0; z-index:20; display:none; min-width:190px; padding:8px; border:1px solid rgba(214,173,85,.32); border-radius:14px; background:#101a20; box-shadow:0 22px 54px rgba(0,0,0,.3); }
+    .dots-menu.is-open .dots-menu__panel { display:grid; gap:4px; }
+    .dots-menu__panel a { display:block; padding:11px 12px; border-radius:10px; color:#fbf7ef; text-decoration:none; white-space:nowrap; }
+    .dots-menu__panel a:hover,.dots-menu__panel a:focus-visible { background:rgba(214,173,85,.16); outline:none; }
+    .hero { display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:36px; align-items:stretch; margin-bottom:36px; }
+    .eyebrow { margin:0 0 14px; color:var(--gold); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:Georgia,"Times New Roman",serif; margin:0; line-height:1.08; }
+    h1 { max-width:820px; font-size:clamp(2.9rem,7vw,5.4rem); }
+    .lead { max-width:760px; margin:24px 0 0; color:var(--muted); font-size:1.08rem; line-height:1.8; }
+    .info-card,.summary,.viewer { border:1px solid var(--line); border-radius:20px; background:rgba(16,26,32,.84); overflow:hidden; }
+    .info-card,.summary { padding:28px; }
+    .info-card h2,.summary h2 { font-size:1.8rem; margin-bottom:18px; }
+    p,li { color:var(--muted); line-height:1.75; }
+    .summary p { text-align:justify; }
+    .actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; text-decoration:none; font-weight:700; }
+    .button.primary { background:var(--gold); color:#15130d; }
+    .button.secondary { border:1px solid rgba(255,255,255,.22); color:var(--text); }
+    .content-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:24px; align-items:start; }
+    .summary-section + .summary-section { margin-top:28px; padding-top:24px; border-top:1px solid var(--line); }
+    .summary-section h3 { color:var(--text); font-size:1.35rem; margin-bottom:12px; }
+    .summary ul { display:grid; gap:10px; margin:14px 0 0; padding-left:20px; }
+    .viewer header { padding:20px 24px; border-bottom:1px solid var(--line); background:rgba(255,255,255,.04); }
+    .viewer h2 { font-size:1.5rem; }
+    .pdf-frame { width:100%; height:780px; border:0; background:#fff; display:block; }
+    @media (max-width:900px) { .hero,.content-grid{grid-template-columns:1fr;} .topbar{align-items:flex-start; flex-direction:column;} .dots-menu{margin-left:0;} .pdf-frame{height:620px;} }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="topbar" aria-label="Navegação">
+      <a class="brand" href="../../index.html"><span class="mark">CA</span><span class="brand-text"><strong>Milagres Eucarísticos</strong><span class="brand-subtitle">Exposição internacional de Carlo Acutis</span></span></a>
+      <div class="dots-menu"><button class="dots-menu__button" type="button" aria-label="Abrir menu" aria-expanded="false"><span class="dots-menu__icon"></span><span>Menu</span></button><div class="dots-menu__panel"><a href="../../index.html">Início</a><a href="../../biografia.html">Biografia</a><a href="../../contatos.html">Contatos</a><a href="../../pref_RM.html">Prefácios</a><a href="../../index.html#lista">Lista</a><a href="../../index.html#contexto">Contexto</a></div></div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Áustria</p>
+        <h1>Fiecht, 1310</h1>
+        <p class="lead">Página local refatorada para o Milagre Eucarístico de São Georgenberg-Fiecht, ocorrido em 1310, no vale do Inn.</p>
+        <div class="actions"><a class="button primary" href="#painel-oficial">Ver painel oficial</a><a class="button secondary" href="https://www.miracolieucaristici.org/pr/Liste/scheda.html?nat=austria&wh=fiecht&ct=Fiecht,%201310" target="_blank" rel="noopener noreferrer">Abrir fonte original</a></div>
+      </div>
+      <aside class="info-card"><p class="eyebrow">Local</p><h2>São Georgenberg-Fiecht</h2><p>O milagre é ligado ao mosteiro de São Georgenberg, onde a relíquia do Santo Sangue passou a ser venerada.</p></aside>
+    </section>
+
+    <section class="content-grid">
+      <article class="summary">
+        <p class="eyebrow">Conteúdo organizado</p>
+        <h2>Milagre Eucarístico de Fiecht</h2>
+        <section class="summary-section"><h3>Visão geral</h3><p>O povoado de São Georgenberg-Fiecht, situado no vale do Inn, tornou-se conhecido por um milagre ocorrido durante a celebração da Missa, em 1310. Segundo a tradição apresentada pela exposição, um sacerdote foi tomado pela dúvida sobre a presença real de Cristo sob as espécies do vinho consagrado.</p></section>
+        <section class="summary-section"><h3>O prodígio</h3><p>Depois da consagração, o vinho teria se transformado em sangue vermelho, começando a borbulhar dentro do cálice até transbordar. O abade, os monges presentes no coro e numerosos peregrinos aproximaram-se do altar e constataram o acontecimento.</p></section>
+        <section class="summary-section"><h3>A relíquia</h3><p>Tomado de temor, o sacerdote não conseguiu consumir todo o Santo Sangue. O abade recolheu o restante e o guardou com o pano utilizado para secar o cálice, depositando-o no tabernáculo do altar maior. A notícia espalhou-se rapidamente e atraiu peregrinos para veneração.</p></section>
+        <section class="summary-section"><h3>Reconhecimento e devoção</h3><p>Com o crescimento da devoção, uma comissão eclesiástica foi enviada para examinar o fenômeno. A veneração ao Santo Sangue foi promovida, e a tradição afirma que a relíquia permaneceu conservada no mosteiro, tornando-se sinal de confirmação da fé eucarística.</p></section>
+        <section class="summary-section"><h3>Dados principais</h3><ul><li>País: Áustria.</li><li>Local: São Georgenberg-Fiecht.</li><li>Ano: 1310.</li><li>Relíquia: Santo Sangue ligado ao cálice da celebração.</li></ul></section>
+      </article>
+
+      <section class="viewer" id="painel-oficial">
+        <header><p class="eyebrow">Visualização</p><h2>Painel oficial em português</h2></header>
+        <iframe class="pdf-frame" src="https://www.miracolieucaristici.org/pr/download/fiecht.pdf" title="Painel oficial do Milagre Eucarístico de Fiecht"></iframe>
+      </section>
+    </section>
+  </main>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){var menu=document.querySelector(".dots-menu");var button=document.querySelector(".dots-menu__button");if(!menu||!button)return;button.addEventListener("click",function(){var isOpen=menu.classList.toggle("is-open");button.setAttribute("aria-expanded",String(isOpen));});document.addEventListener("click",function(event){if(!menu.contains(event.target)){menu.classList.remove("is-open");button.setAttribute("aria-expanded","false");}});document.addEventListener("keydown",function(event){if(event.key==="Escape"){menu.classList.remove("is-open");button.setAttribute("aria-expanded","false");}});});
+  </script>
+</body>
+</html>

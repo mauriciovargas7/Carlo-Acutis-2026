@@ -5,7 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Os Milagres Eucarísticos | Padre Roberto Coggi</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
+  <style>
+    main p,
+    article p,
+    section p {
+      text-align: justify;
+      line-height: 1.7;
+    }
+  </style>
+  <style>
+    .dots-menu { position: relative; margin-left: auto; }
+    .dots-menu__button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      height: 44px; padding: 0 16px; border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px; color: #fbf7ef; background: rgba(255,255,255,.06);
+      font-weight: 700; cursor: pointer;
+    }
+    .dots-menu__button:hover, .dots-menu__button:focus-visible { border-color: rgba(214,173,85,.72); outline: none; }
+    .dots-menu__icon {
+      display: block; width: 18px; height: 2px; border-radius: 999px;
+      background: currentColor; box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
+    }
+    .dots-menu__text { font-size: .95rem; }
+    .dots-menu__panel {
+      position: absolute; top: calc(100% + 10px); right: 0; z-index: 20; display: none;
+      min-width: 190px; padding: 8px; border: 1px solid rgba(214,173,85,.32);
+      border-radius: 14px; background: #101a20; box-shadow: 0 22px 54px rgba(0,0,0,.3);
+    }
+    .dots-menu.is-open .dots-menu__panel { display: grid; gap: 4px; }
+    .dots-menu__panel a {
+      display: block; padding: 11px 12px; border-radius: 10px; color: #fbf7ef;
+      text-decoration: none; white-space: nowrap;
+    }
+    .dots-menu__panel a:hover, .dots-menu__panel a:focus-visible { background: rgba(214,173,85,.16); outline: none; }
+  </style>
+  <style>
+    .pref-hero-image {
+      width: min(1060px, calc(100% - 32px));
+      margin: 0 auto 56px;
+    }
+
+    .pref-hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+  <style>
+    .classic-heading {
+      margin-bottom: 28px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .classic-heading__title {
+      max-width: 980px;
+      margin: 0 auto 22px;
+      color: #fbf7ef;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.35rem, 2.6vw, 1.95rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .classic-heading__title strong,
+    .classic-heading__subtitle {
+      color: #d8212f;
+    }
+
+    .classic-heading__title a {
+      color: #d8212f;
+      text-decoration: none;
+    }
+
+    .classic-heading__title a:hover,
+    .classic-heading__title a:focus-visible {
+      text-decoration: underline;
+    }
+
+    .classic-heading__subtitle {
+      margin: 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      text-align: center;
+    }
+  </style>
+  <style>
+    .classic-heading,
+    .classic-heading p,
+    .classic-heading__title,
+    .classic-heading__subtitle {
+      text-align: center !important;
+    }
+  </style>
+  <style>
+    .classic-heading + h1,
+    .classic-heading + h1 + p,
+    .classic-heading + h1 + p ~ p {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .classic-heading + h1 {
+      text-align: center;
+    }
+  </style>
+  <style>
+    .pref-switcher {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto 28px;
+    }
+
+    .pref-switcher a {
+      display: block;
+      padding: 18px 20px;
+      border: 1px solid rgba(214, 173, 85, 0.32);
+      border-radius: 14px;
+      color: #fbf7ef;
+      background: rgba(16, 26, 32, 0.84);
+      text-decoration: none;
+    }
+
+    .pref-switcher span {
+      display: block;
+      color: #d6ad55;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .pref-switcher strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 820px) {
+      .pref-switcher {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
   <body>
     <header class="topbar">
       <a class="brand" href="index.html">
@@ -26,46 +174,148 @@
         <p class="eyebrow">Texto-base</p>
         <h1 class="hero-title">Os Milagres Eucarísticos</h1>
         <p class="lede">
-          Os Milagres Eucarísticos são intervenções prodigiosas de Deus, que visam confirmar a fé
-          na presença real do corpo e sangue do Senhor na Eucaristia.
+          Os Milagres Eucarísticos são intervenções prodigiosas de Deus, que visam confirmar a 
+          fé na presença real do corpo e sangue do Senhor na Eucaristia. Conhecemos a doutrina 
+          católica no diz respeito à presença real. Nas palavras da consagração: “Este é o meu Corpo”, 
+          “Este é o meu Sangue”, a substância do pão torna-se o Corpo de Cristo, e a substância do vinho o 
+          seu Sangue. Esta notável mutação é designada por transubstanciação, ou seja, mudança de substância. 
+          Do pão e do vinho permanecem as aparências ou espécies que, filosoficamente, se chamam acidentes. 
+          Permanecem o tamanho, a cor, o sabor, o cheiro e também as capacidades nutritivas, mas continua a ser a 
+          substância, ou seja, a verdadeira realidade, que se tornou o Corpo e o Sangue do Senhor.
         </p>
         <p class="lede">
-          Conhecemos a doutrina católica no diz respeito à presença real. Nas palavras da
-          consagração: “Este é o meu Corpo”, “Este é o meu Sangue”, a substância do pão torna-se o
-          Corpo de Cristo, e a substância do vinho o seu Sangue.
+          A Transubstanciação não poderá ser de modo algum vivida pelos sentidos, apenas a fé nos assegura desta maravilhosa mutação.
         </p>
         <p class="lede">
-          Do pão e do vinho permanecem as aparências ou espécies. Permanecem o tamanho, a cor, o
-          sabor, o cheiro e também as capacidades nutritivas, mas continua a ser a substância, ou
-          seja, a verdadeira realidade, que se tornou o Corpo e o Sangue do Senhor.
+          Os Milagres Eucarísticos pretendem confirmar esta fé, que se baseia nas Palavras de Jesus, segundo as 
+          quais o que parece pão já não é pão, e o que parece vinho já não é vinho. Efetivamente, nos Milagres Eucarísticos figuram 
+          a Carne e o Sangue, ou um ou outro, conforme o caso. O propósito dos Milagres é provar que não devemos olhar para a aparência 
+          exterior (pão e vinho), mas para a substância, a verdadeira realidade da coisa, que é carne e sangue.
         </p>
         <p class="lede">
-          A Transubstanciação não poderá ser de modo algum vivida pelos sentidos, apenas a fé nos
-          assegura desta maravilhosa mutação.
+          Os teólogos medievais aprofundaram o tema dos Milagres Eucarísticos (muito frequentes na época), para os quais forneceram várias 
+          interpretações, mas a mais fundada e razoável parece ser a do “Doutor Eucarístico” por excelência, ou seja, São Tomás de Aquino 
+          (Suma Teológica III, q.76, a.8).
         </p>
         <p class="lede">
-          Os Milagres Eucarísticos pretendem confirmar esta fé, que se baseia nas Palavras de Jesus,
-          segundo as quais o que parece pão já não é pão, e o que parece vinho já não é vinho.
+          Ele afirma que o Corpo e o Sangue que aparecem após o Milagre se devem à transformação das espécies eucarísticas, ou seja, dos 
+          acidentes, e não tocam a verdadeira substância do Corpo e Sangue de Jesus. As espécies do pão e do vinho são milagrosamente transmutadas
+           em espécies de carne e sangue, mas o verdadeiro Corpo e o verdadeiro Sangue de Jesus não são aqueles que aparecem, mas aqueles que, antes
+            ainda do Milagre, estavam ocultos sob as espécies do pão e do vinho e que ainda existem secretamente sob a espécie da carne e do sangue.
         </p>
         <p class="lede">
-          Os teólogos medievais aprofundaram o tema dos Milagres Eucarísticos, para os quais
-          forneceram várias interpretações, mas a mais fundada e razoável parece ser a de São Tomás
-          de Aquino.
+          Se, efetivamente, a carne e o sangue que aparecem fossem verdadeiramente a carne e o sangue de Jesus, deveríamos dizer que Jesus ressuscitado, 
+          que reina impassível à direita do Pai, perdera uma parte da sua carne ou do seu sangue, o que não poderá, de forma alguma, ser admitido.
         </p>
         <p class="lede">
-          Ele afirma que o Corpo e o Sangue que aparecem após o Milagre se devem à transformação
-          das espécies eucarísticas, ou seja, dos acidentes, e não tocam a verdadeira substância do
-          Corpo e Sangue de Jesus.
+          Devemos dizer que a carne e o sangue que aparecem nos milagres são do mesmo tipo das espécies ou aparências, ou acidentes – nem mais nem menos
+           do que as espécies do pão e do vinho.
         </p>
         <p class="lede">
-          As espécies do pão e do vinho são milagrosamente transmutadas em espécies de carne e
-          sangue, mas o verdadeiro Corpo e o verdadeiro Sangue de Jesus não são aqueles que
-          aparecem, mas aqueles que permanecem sob as espécies do pão e do vinho.
+          O Senhor realiza estes milagres para dar um sinal, claro e visível a todos, de que a Eucaristia é o verdadeiro Corpo e verdadeiro Sangue do Senhor.
         </p>
+        <p class="lede">
+          Porém, este verdadeiro Corpo e Sangue não são aqueles que aparecem, mas aqueles que estão substancialmente contidos sob as espécies ou aparências – 
+          espécies ou aparências estas que, antes do Milagre, eram as do pão e do vinho, e depois do Milagre são as da carne e do sangue.
+        </p>
+        <p class="lede">
+          Jesus está realmente e substancialmente contido sob as aparências da carne e do sangue, tal como antes do Milagre. Por isso, podemos adorar Jesus 
+          realmente presente sob a espécie da carne e do sangue.
+        </p>
+
         <p class="lede">
           Padre Roberto Coggi, O.P.
         </p>
       </article>
     </main>
-  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".dots-menu")) return;
+      var nav = document.querySelector(".topbar, header nav, nav, header");
+      if (!nav) return;
+      var menu = document.createElement("div");
+      var button = document.createElement("button");
+      var panel = document.createElement("div");
+      menu.className = "dots-menu";
+      button.className = "dots-menu__button";
+      button.type = "button";
+      button.setAttribute("aria-label", "Abrir menu");
+      button.setAttribute("aria-expanded", "false");
+      button.innerHTML = '<span class="dots-menu__icon"></span><span class="dots-menu__text">Menu</span>';
+      panel.className = "dots-menu__panel";
+      [["Início", "index.html"], ["Biografia", "biografia.html"], ["Contatos", "contatos.html"], ["Prefácios", "pref_RM.html"], ["Lista", "index.html#lista"], ["Contexto", "index.html#contexto"]].forEach(function (item) {
+        var link = document.createElement("a");
+        link.textContent = item[0];
+        link.href = item[1];
+        panel.appendChild(link);
+      });
+      menu.appendChild(button);
+      menu.appendChild(panel);
+      nav.appendChild(menu);
+      button.addEventListener("click", function () {
+        var isOpen = menu.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(isOpen));
+      });
+      document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target)) {
+          menu.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".pref-hero-image")) return;
+
+      var topbar = document.querySelector(".topbar");
+      var header = document.querySelector("header");
+      var anchor = topbar || header;
+
+      if (!anchor || !anchor.parentElement) return;
+
+      var imageBlock = document.createElement("div");
+      imageBlock.className = "pref-hero-image";
+      imageBlock.innerHTML = '<img src="Background.jpg" alt="Lista de Milagres - Os Milagres Eucarísticos no Mundo">';
+      anchor.parentElement.insertBefore(imageBlock, anchor.nextSibling);
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".classic-heading")) return;
+
+      var title = Array.from(document.querySelectorAll("h1, h2")).find(function (heading) {
+        return heading.textContent.trim() === "Os Milagres Eucarísticos";
+      });
+
+      if (!title || !title.parentElement) return;
+
+      var headingBlock = document.createElement("div");
+      headingBlock.className = "classic-heading";
+      headingBlock.innerHTML = `
+        <p class="classic-heading__title">Exposição Internacional concebida e levada a cabo por <a href="biografia.html"><strong>Carlo Acutis</strong></a></p>
+      `;
+
+      title.parentElement.insertBefore(headingBlock, title);
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".pref-switcher")) return;
+
+      var content = document.querySelector("article, main section, .content-card");
+      if (!content || !content.parentElement) return;
+
+      var switcher = document.createElement("nav");
+      switcher.className = "pref-switcher";
+      switcher.setAttribute("aria-label", "Prefácios");
+      switcher.innerHTML = `
+        <a href="pref_AC.html"><span>Prefácio</span><strong>Cardeal Angelo Comastri</strong></a>
+        <a href="pref_RM.html"><span>Apresentação</span><strong>Raffaello Martinelli</strong></a>
+        <a href="pref_RC.html"><span>Os Milagres Eucarísticos</span><strong>Padre Roberto Coggi, O.P.</strong></a>
+      `;
+      content.parentElement.insertBefore(switcher, content);
+    });
+  </script>
+</body>
 </html>

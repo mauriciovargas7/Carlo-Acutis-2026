@@ -240,6 +240,80 @@
       }
     }
   </style>
+  <style>
+    .dots-menu {
+      position: relative;
+      margin-left: auto;
+    }
+
+    .dots-menu__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 44px;
+      padding: 0 16px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: #fbf7ef;
+      background: rgba(255, 255, 255, 0.06);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .dots-menu__button:hover,
+    .dots-menu__button:focus-visible {
+      border-color: rgba(214, 173, 85, 0.72);
+      outline: none;
+    }
+
+    .dots-menu__icon {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
+    }
+
+    .dots-menu__text {
+      font-size: 0.95rem;
+    }
+
+    .dots-menu__panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      z-index: 20;
+      display: none;
+      min-width: 190px;
+      padding: 8px;
+      border: 1px solid rgba(214, 173, 85, 0.32);
+      border-radius: 14px;
+      background: #101a20;
+      box-shadow: 0 22px 54px rgba(0, 0, 0, 0.3);
+    }
+
+    .dots-menu.is-open .dots-menu__panel {
+      display: grid;
+      gap: 4px;
+    }
+
+    .dots-menu__panel a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 10px;
+      color: #fbf7ef;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .dots-menu__panel a:hover,
+    .dots-menu__panel a:focus-visible {
+      background: rgba(214, 173, 85, 0.16);
+      outline: none;
+    }
+  </style>
 </head>
 <body>
   <main class="page">
@@ -264,6 +338,7 @@
         </p>
         <div class="actions">
           <a class="button primary" href="#painel-oficial">Ver painel</a>
+          <a class="button secondary" href="../painel-b/index.html">Ir para Painel B</a>
           <a class="button secondary" href="https://www.miracolieucaristici.org/pr/Liste/scheda.html?nat=pannelli&wh=pannelloa&ct=Painel%20A" target="_blank" rel="noopener noreferrer">Abrir página original</a>
         </div>
       </div>
@@ -307,5 +382,67 @@
       </section>
     </section>
   </main>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".dots-menu")) {
+        return;
+      }
+
+      var nav = document.querySelector(".topbar, header nav, nav, header");
+
+      if (!nav) {
+        return;
+      }
+
+      var menu = document.createElement("div");
+      var button = document.createElement("button");
+      var panel = document.createElement("div");
+
+      menu.className = "dots-menu";
+      button.className = "dots-menu__button";
+      button.type = "button";
+      button.setAttribute("aria-label", "Abrir menu");
+      button.setAttribute("aria-expanded", "false");
+      button.innerHTML = '<span class="dots-menu__icon"></span><span class="dots-menu__text">Menu</span>';
+      panel.className = "dots-menu__panel";
+
+      [
+        ["Início", "../index.html"],
+        ["Biografia", "../biografia.html"],
+        ["Contatos", "../contatos.html"],
+        ["Prefácios", "../pref_RM.html"],
+        ["Lista", "../index.html#lista"],
+        ["Contexto", "../index.html#contexto"]
+      ].forEach(function (item) {
+        var link = document.createElement("a");
+        link.textContent = item[0];
+        link.href = item[1];
+        panel.appendChild(link);
+      });
+
+      menu.appendChild(button);
+      menu.appendChild(panel);
+      nav.appendChild(menu);
+
+      button.addEventListener("click", function () {
+        var isOpen = menu.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target)) {
+          menu.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          menu.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  </script>
 </body>
 </html>

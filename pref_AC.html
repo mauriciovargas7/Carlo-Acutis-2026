@@ -5,7 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Prefácio | Cardeal Angelo Comastri</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
+  <style>
+    .dots-menu { position: relative; margin-left: auto; }
+    .dots-menu__button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      height: 44px; padding: 0 16px; border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px; color: #fbf7ef; background: rgba(255,255,255,.06);
+      font-weight: 700; cursor: pointer;
+    }
+    .dots-menu__button:hover, .dots-menu__button:focus-visible { border-color: rgba(214,173,85,.72); outline: none; }
+    .dots-menu__icon {
+      display: block; width: 18px; height: 2px; border-radius: 999px;
+      background: currentColor; box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
+    }
+    .dots-menu__text { font-size: .95rem; }
+    .dots-menu__panel {
+      position: absolute; top: calc(100% + 10px); right: 0; z-index: 20; display: none;
+      min-width: 190px; padding: 8px; border: 1px solid rgba(214,173,85,.32);
+      border-radius: 14px; background: #101a20; box-shadow: 0 22px 54px rgba(0,0,0,.3);
+    }
+    .dots-menu.is-open .dots-menu__panel { display: grid; gap: 4px; }
+    .dots-menu__panel a {
+      display: block; padding: 11px 12px; border-radius: 10px; color: #fbf7ef;
+      text-decoration: none; white-space: nowrap;
+    }
+    .dots-menu__panel a:hover, .dots-menu__panel a:focus-visible { background: rgba(214,173,85,.16); outline: none; }
+  </style>
+  <style>
+    .pref-hero-image {
+      width: min(1060px, calc(100% - 32px));
+      margin: 0 auto 56px;
+    }
+
+    .pref-hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+  <style>
+    .pref-switcher {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto 28px;
+    }
+
+    .pref-switcher a {
+      display: block;
+      padding: 18px 20px;
+      border: 1px solid rgba(214, 173, 85, 0.32);
+      border-radius: 14px;
+      color: #fbf7ef;
+      background: rgba(16, 26, 32, 0.84);
+      text-decoration: none;
+    }
+
+    .pref-switcher span {
+      display: block;
+      color: #d6ad55;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .pref-switcher strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 820px) {
+      .pref-switcher {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
   <body>
     <header class="topbar">
       <a class="brand" href="index.html">
@@ -74,5 +151,75 @@
         <p class="lede">Vigário do Papa para o Estado da Cidade do Vaticano</p>
       </article>
     </main>
-  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".dots-menu")) return;
+      var nav = document.querySelector(".topbar, header nav, nav, header");
+      if (!nav) return;
+      var menu = document.createElement("div");
+      var button = document.createElement("button");
+      var panel = document.createElement("div");
+      menu.className = "dots-menu";
+      button.className = "dots-menu__button";
+      button.type = "button";
+      button.setAttribute("aria-label", "Abrir menu");
+      button.setAttribute("aria-expanded", "false");
+      button.innerHTML = '<span class="dots-menu__icon"></span><span class="dots-menu__text">Menu</span>';
+      panel.className = "dots-menu__panel";
+      [["Início", "index.html"], ["Biografia", "biografia.html"], ["Contatos", "contatos.html"], ["Prefácios", "pref_RM.html"], ["Lista", "index.html#lista"], ["Contexto", "index.html#contexto"]].forEach(function (item) {
+        var link = document.createElement("a");
+        link.textContent = item[0];
+        link.href = item[1];
+        panel.appendChild(link);
+      });
+      menu.appendChild(button);
+      menu.appendChild(panel);
+      nav.appendChild(menu);
+      button.addEventListener("click", function () {
+        var isOpen = menu.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(isOpen));
+      });
+      document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target)) {
+          menu.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".pref-hero-image")) return;
+
+      var topbar = document.querySelector(".topbar");
+      var header = document.querySelector("header");
+      var anchor = topbar || header;
+
+      if (!anchor || !anchor.parentElement) return;
+
+      var imageBlock = document.createElement("div");
+      imageBlock.className = "pref-hero-image";
+      imageBlock.innerHTML = '<img src="Background.jpg" alt="Lista de Milagres - Os Milagres Eucarísticos no Mundo">';
+      anchor.parentElement.insertBefore(imageBlock, anchor.nextSibling);
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector(".pref-switcher")) return;
+
+      var content = document.querySelector("article, main section, .content-card");
+      if (!content || !content.parentElement) return;
+
+      var switcher = document.createElement("nav");
+      switcher.className = "pref-switcher";
+      switcher.setAttribute("aria-label", "Prefácios");
+      switcher.innerHTML = `
+        <a href="pref_AC.html"><span>Prefácio</span><strong>Cardeal Angelo Comastri</strong></a>
+        <a href="pref_RM.html"><span>Apresentação</span><strong>Raffaello Martinelli</strong></a>
+        <a href="pref_RC.html"><span>Os Milagres Eucarísticos</span><strong>Padre Roberto Coggi, O.P.</strong></a>
+      `;
+      content.parentElement.insertBefore(switcher, content);
+    });
+  </script>
+</body>
 </html>

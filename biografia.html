@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biografia | Carlo Acutis</title>
+  <style>
+    :root {
+      --bg: #132033;
+      --panel: #101a20;
+      --gold: #d6ad55;
+      --text: #fbf7ef;
+      --muted: #d7d0c4;
+      --line: rgba(214, 173, 85, 0.28);
+      --red: #d8212f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(214, 173, 85, 0.14), transparent 30rem),
+        linear-gradient(135deg, #0f172a 0%, var(--bg) 48%, #26394d 100%);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 64px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(214, 173, 85, 0.7);
+      border-radius: 18px;
+      color: var(--gold);
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .brand-text strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+    }
+
+    .brand-subtitle {
+      display: block;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    .dots-menu {
+      position: relative;
+      margin-left: auto;
+    }
+
+    .dots-menu__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 44px;
+      padding: 0 16px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .dots-menu__button:hover,
+    .dots-menu__button:focus-visible {
+      border-color: rgba(214, 173, 85, 0.72);
+      outline: none;
+    }
+
+    .dots-menu__icon {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
+    }
+
+    .dots-menu__panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      z-index: 20;
+      display: none;
+      min-width: 190px;
+      padding: 8px;
+      border: 1px solid rgba(214, 173, 85, 0.32);
+      border-radius: 14px;
+      background: #101a20;
+      box-shadow: 0 22px 54px rgba(0, 0, 0, 0.3);
+    }
+
+    .dots-menu.is-open .dots-menu__panel {
+      display: grid;
+      gap: 4px;
+    }
+
+    .dots-menu__panel a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 10px;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .dots-menu__panel a:hover,
+    .dots-menu__panel a:focus-visible {
+      background: rgba(214, 173, 85, 0.16);
+      outline: none;
+    }
+
+    .portrait {
+      width: min(760px, 100%);
+      margin: 0 auto 48px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .content-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: clamp(28px, 5vw, 54px);
+      background: rgba(16, 26, 32, 0.86);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.18);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      margin: 0;
+      line-height: 1.08;
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+    }
+
+    h2 {
+      margin: 34px 0 14px;
+      color: var(--text);
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      color: var(--red);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+    }
+
+    p,
+    li {
+      max-width: 880px;
+      color: var(--muted);
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    ul {
+      display: grid;
+      gap: 10px;
+      margin: 14px 0 0;
+      padding-left: 22px;
+    }
+
+    .quote {
+      margin: 32px 0;
+      padding: 22px 24px;
+      border-left: 4px solid var(--gold);
+      border-radius: 12px;
+      background: rgba(214, 173, 85, 0.08);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .source {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+
+    .source a {
+      color: var(--gold);
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .dots-menu {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="topbar" aria-label="Navegação">
+      <a class="brand" href="index.html">
+        <span class="mark">CA</span>
+        <span class="brand-text">
+          <strong>Milagres Eucarísticos</strong>
+          <span class="brand-subtitle">Biografia de Carlo Acutis</span>
+        </span>
+      </a>
+
+      <div class="dots-menu">
+        <button class="dots-menu__button" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span class="dots-menu__icon"></span>
+          <span>Menu</span>
+        </button>
+        <div class="dots-menu__panel">
+          <a href="index.html">Início</a>
+          <a href="biografia.html">Biografia</a>
+          <a href="contatos.html">Contatos</a>
+          <a href="pref_RM.html">Prefácios</a>
+          <a href="index.html#lista">Lista</a>
+          <a href="index.html#contexto">Contexto</a>
+        </div>
+      </div>
+    </nav>
+
+    <figure class="portrait">
+      <img src="carlo_acutis.jpg" alt="Carlo Acutis">
+    </figure>
+
+    <article class="content-card">
+      <p class="eyebrow">Carlo Acutis</p>
+      <h1>Biografia</h1>
+      <p class="subtitle">Um jovem profundamente eucarístico, mariano e atento ao próximo.</p>
+
+      <h2>Vida breve, testemunho intenso</h2>
+      <p>
+        Carlo Acutis morreu aos 15 anos, vítima de uma leucemia fulminante. A sua partida deixou
+        um vazio profundo entre familiares, amigos e todos os que o conheceram, mas também fez
+        crescer a admiração por uma vida curta e intensamente marcada pela fé cristã.
+      </p>
+      <p>
+        Desde a Primeira Comunhão, recebida aos 7 anos, Carlo procurou participar diariamente da
+        Santa Missa. Antes ou depois da celebração, costumava permanecer em oração diante do
+        tabernáculo, adorando Cristo realmente presente no Santíssimo Sacramento.
+      </p>
+
+      <h2>Devoção eucarística e amor a Nossa Senhora</h2>
+      <p>
+        A Eucaristia ocupava o centro da sua vida espiritual. Carlo compreendia a Missa, a adoração
+        e a presença real de Jesus como fonte de força, orientação e amizade com Deus.
+      </p>
+      <p>
+        Nossa Senhora também tinha um lugar especial em sua vida. Ele a considerava uma grande
+        confidente e honrava a Virgem Maria com a recitação diária do Rosário. Essa devoção mariana,
+        unida à vida eucarística, ajudou a formar a personalidade espiritual que tantas pessoas
+        admiravam nele.
+      </p>
+
+      <p class="quote">“A Eucaristia é a minha autoestrada para o Céu.”</p>
+
+      <h2>Um jovem moderno</h2>
+      <p>
+        A modernidade de Carlo não se opunha à sua fé. Pelo contrário, ele colocou seus talentos a
+        serviço do Evangelho. Tinha grande facilidade com computadores e era considerado muito
+        habilidoso por amigos, adultos e profissionais da área de informática.
+      </p>
+      <p>
+        Interessava-se por programação, edição de vídeos, criação de sites, redação e diagramação.
+        Sua capacidade de compreender temas complexos da computação chamava atenção e era vista por
+        muitos como um talento incomum para a sua idade.
+      </p>
+
+      <h2>Caridade concreta</h2>
+      <p>
+        Além dos interesses tecnológicos, Carlo também se dedicava ao serviço dos mais necessitados.
+        A biografia de referência destaca seu trabalho voluntário junto a crianças, idosos e pessoas
+        em situação de necessidade.
+      </p>
+      <p>
+        A sua fé não era apenas uma ideia ou um costume religioso: ela se traduzia em presença,
+        generosidade, atenção e disponibilidade para ajudar.
+      </p>
+
+      <h2>Oferta pela Igreja</h2>
+      <p>
+        Carlo pertenceu à Diocese de Milão e é apresentado como um jovem fiel que unia simplicidade,
+        inteligência, vida sacramental e caridade. Antes de morrer, ofereceu seus sofrimentos pelo
+        Papa e pela Igreja.
+      </p>
+      <p>
+        Sua vida continua sendo lembrada como exemplo de santidade jovem, capaz de unir espiritualidade
+        profunda, linguagem contemporânea e amor concreto por Cristo na Eucaristia.
+      </p>
+
+      <h2>Pontos principais</h2>
+      <ul>
+        <li>Morreu aos 15 anos, por leucemia fulminante.</li>
+        <li>Participava diariamente da Santa Missa desde a Primeira Comunhão.</li>
+        <li>Rezava o Rosário todos os dias.</li>
+        <li>Tinha grande talento para informática, sites, vídeos e comunicação.</li>
+        <li>Servia crianças, idosos e pessoas necessitadas.</li>
+        <li>Ofereceu seus sofrimentos pelo Papa e pela Igreja.</li>
+      </ul>
+
+      <p class="source">
+        Conteúdo organizado a partir da fonte original:
+        <a href="https://www.miracolieucaristici.org/pr/Biografia/biografia.html" target="_blank" rel="noopener noreferrer">
+          miracolieucaristici.org/pr/Biografia/biografia.html
+        </a>
+      </p>
+    </article>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var menu = document.querySelector(".dots-menu");
+      var button = document.querySelector(".dots-menu__button");
+
+      if (!menu || !button) {
+        return;
+      }
+
+      button.addEventListener("click", function () {
+        var isOpen = menu.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target)) {
+          menu.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          menu.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
