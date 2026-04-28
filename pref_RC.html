@@ -153,6 +153,28 @@
       }
     }
   </style>
+  <style>
+    @media (max-width: 760px) {
+      .topbar,
+      header,
+      header nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .topbar > a:not(.brand):not(:has(.mark)),
+      header nav > a:not(.brand):not(:has(.mark)),
+      header > a:not(.brand):not(:has(.mark)) {
+        display: none !important;
+      }
+
+      .dots-menu {
+        margin-left: auto !important;
+      }
+    }
+  </style>
 </head>
   <body>
     <header class="topbar">
