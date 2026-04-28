@@ -140,6 +140,34 @@
       outline: none;
     }
   </style>
+  <style>
+    @media (max-width: 760px) {
+      .dots-menu {
+        position: relative !important;
+        margin-left: 0 !important;
+        align-self: flex-start !important;
+        z-index: 50 !important;
+      }
+
+      .dots-menu__panel {
+        left: 0 !important;
+        right: auto !important;
+        top: calc(100% + 10px) !important;
+        width: min(220px, calc(100vw - 32px)) !important;
+        min-width: 0 !important;
+        max-width: calc(100vw - 32px) !important;
+        transform: none !important;
+      }
+
+      .dots-menu:not(.is-open) .dots-menu__panel {
+        display: none !important;
+      }
+
+      .dots-menu.is-open .dots-menu__panel {
+        display: grid !important;
+      }
+    }
+  </style>
 </head>
   <body>
     <div class="backdrop backdrop-a" aria-hidden="true"></div>
