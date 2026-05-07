@@ -613,5 +613,229 @@
       }, 0);
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var belgicaUrl = "belgica/bois-seigneur-isaac/index.html";
+      var belgicaButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Bois-Seigneur-Isaac, 1405";
+      });
+
+      if (!belgicaButton) {
+        return;
+      }
+
+      if (belgicaButton.tagName.toLowerCase() === "a") {
+        belgicaButton.href = belgicaUrl;
+        belgicaButton.target = "_self";
+        belgicaButton.removeAttribute("rel");
+        return;
+      }
+
+      belgicaButton.style.cursor = "pointer";
+      belgicaButton.setAttribute("role", "link");
+      belgicaButton.setAttribute("tabindex", "0");
+      belgicaButton.addEventListener("click", function () {
+        window.location.href = belgicaUrl;
+      });
+      belgicaButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = belgicaUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var brugesUrl = "belgica/bruges/index.html";
+      var brugesButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Bruges, 1203";
+      });
+
+      if (!brugesButton) {
+        return;
+      }
+
+      if (brugesButton.tagName.toLowerCase() === "a") {
+        brugesButton.href = brugesUrl;
+        brugesButton.target = "_self";
+        brugesButton.removeAttribute("rel");
+        return;
+      }
+
+      brugesButton.style.cursor = "pointer";
+      brugesButton.setAttribute("role", "link");
+      brugesButton.setAttribute("tabindex", "0");
+      brugesButton.addEventListener("click", function () {
+        window.location.href = brugesUrl;
+      });
+      brugesButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = brugesUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var bruxelasUrl = "belgica/bruxelas/index.html";
+      var bruxelasButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Bruxelas, 1370";
+      });
+
+      if (!bruxelasButton) {
+        return;
+      }
+
+      if (bruxelasButton.tagName.toLowerCase() === "a") {
+        bruxelasButton.href = bruxelasUrl;
+        bruxelasButton.target = "_self";
+        bruxelasButton.removeAttribute("rel");
+        return;
+      }
+
+      bruxelasButton.style.cursor = "pointer";
+      bruxelasButton.setAttribute("role", "link");
+      bruxelasButton.setAttribute("tabindex", "0");
+      bruxelasButton.addEventListener("click", function () {
+        window.location.href = bruxelasUrl;
+      });
+      bruxelasButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = bruxelasUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var herentalsUrl = "belgica/herentals/index.html";
+      var herentalsButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Herentals, 1412";
+      });
+
+      if (!herentalsButton) {
+        return;
+      }
+
+      if (herentalsButton.tagName.toLowerCase() === "a") {
+        herentalsButton.href = herentalsUrl;
+        herentalsButton.target = "_self";
+        herentalsButton.removeAttribute("rel");
+        return;
+      }
+
+      herentalsButton.style.cursor = "pointer";
+      herentalsButton.setAttribute("role", "link");
+      herentalsButton.setAttribute("tabindex", "0");
+      herentalsButton.addEventListener("click", function () {
+        window.location.href = herentalsUrl;
+      });
+      herentalsButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = herentalsUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var herkenrodeUrl = "belgica/herkenrode-hasselt/index.html";
+      var herkenrodeButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Herkenrode-Hasselt, 1317";
+      });
+
+      if (!herkenrodeButton) {
+        return;
+      }
+
+      if (herkenrodeButton.tagName.toLowerCase() === "a") {
+        herkenrodeButton.href = herkenrodeUrl;
+        herkenrodeButton.target = "_self";
+        herkenrodeButton.removeAttribute("rel");
+        return;
+      }
+
+      herkenrodeButton.style.cursor = "pointer";
+      herkenrodeButton.setAttribute("role", "link");
+      herkenrodeButton.setAttribute("tabindex", "0");
+      herkenrodeButton.addEventListener("click", function () {
+        window.location.href = herkenrodeUrl;
+      });
+      herkenrodeButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = herkenrodeUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var liegeUrl = "belgica/liege/index.html";
+      var liegeButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Liège, 1374";
+      });
+
+      if (!liegeButton) {
+        return;
+      }
+
+      if (liegeButton.tagName.toLowerCase() === "a") {
+        liegeButton.href = liegeUrl;
+        liegeButton.target = "_self";
+        liegeButton.removeAttribute("rel");
+        return;
+      }
+
+      liegeButton.style.cursor = "pointer";
+      liegeButton.setAttribute("role", "link");
+      liegeButton.setAttribute("tabindex", "0");
+      liegeButton.addEventListener("click", function () {
+        window.location.href = liegeUrl;
+      });
+      liegeButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = liegeUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var middleburgUrl = "belgica/middleburg-lovanio/index.html";
+      var middleburgButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Middleburg-Lovanio, 1374";
+      });
+
+      if (!middleburgButton) {
+        return;
+      }
+
+      if (middleburgButton.tagName.toLowerCase() === "a") {
+        middleburgButton.href = middleburgUrl;
+        middleburgButton.target = "_self";
+        middleburgButton.removeAttribute("rel");
+        return;
+      }
+
+      middleburgButton.style.cursor = "pointer";
+      middleburgButton.setAttribute("role", "link");
+      middleburgButton.setAttribute("tabindex", "0");
+      middleburgButton.addEventListener("click", function () {
+        window.location.href = middleburgUrl;
+      });
+      middleburgButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = middleburgUrl;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
