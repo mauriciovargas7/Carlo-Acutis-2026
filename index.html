@@ -216,7 +216,8 @@
   <strong>Aviso</strong>
   Este projeto foi desenvolvido para fins educacionais e de portfólio.<br>
   Inspirado no site https://www.miracolieucaristici.org/<br>
-  Não possui vínculo com a organização oficial.
+  Não possui vínculo com a organização oficial.<br>
+  última atualização 12/05/2026.
 </section>
 
 <section class="hero-carousel" aria-label="Imagens da exposição">
@@ -837,5 +838,518 @@
       });
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var tumacoUrl = "colombia/tumaco/index.html";
+      var tumacoButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Tumaco, 1906";
+      });
+
+      if (!tumacoButton) {
+        return;
+      }
+
+      if (tumacoButton.tagName.toLowerCase() === "a") {
+        tumacoButton.href = tumacoUrl;
+        tumacoButton.target = "_self";
+        tumacoButton.removeAttribute("rel");
+        return;
+      }
+
+      tumacoButton.style.cursor = "pointer";
+      tumacoButton.setAttribute("role", "link");
+      tumacoButton.setAttribute("tabindex", "0");
+      tumacoButton.addEventListener("click", function () {
+        window.location.href = tumacoUrl;
+      });
+      tumacoButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = tumacoUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var ludbregUrl = "croacia/ludbreg/index.html";
+      var ludbregButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Ludbreg, 1411";
+      });
+
+      if (!ludbregButton) {
+        return;
+      }
+
+      if (ludbregButton.tagName.toLowerCase() === "a") {
+        ludbregButton.href = ludbregUrl;
+        ludbregButton.target = "_self";
+        ludbregButton.removeAttribute("rel");
+        return;
+      }
+
+      ludbregButton.style.cursor = "pointer";
+      ludbregButton.setAttribute("role", "link");
+      ludbregButton.setAttribute("tabindex", "0");
+      ludbregButton.addEventListener("click", function () {
+        window.location.href = ludbregUrl;
+      });
+      ludbregButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = ludbregUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var mariaEgiziacaUrl = "egito/santa-maria-egiziaca/index.html";
+      var mariaEgiziacaButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        var text = element.textContent.trim();
+        return text === "S. Maria Egiziaca, IV-V sec." || text === "S. Maria Egíaca, IV-V sec.";
+      });
+
+      if (!mariaEgiziacaButton) {
+        return;
+      }
+
+      if (mariaEgiziacaButton.tagName.toLowerCase() === "a") {
+        mariaEgiziacaButton.href = mariaEgiziacaUrl;
+        mariaEgiziacaButton.target = "_self";
+        mariaEgiziacaButton.removeAttribute("rel");
+        return;
+      }
+
+      mariaEgiziacaButton.style.cursor = "pointer";
+      mariaEgiziacaButton.setAttribute("role", "link");
+      mariaEgiziacaButton.setAttribute("tabindex", "0");
+      mariaEgiziacaButton.addEventListener("click", function () {
+        window.location.href = mariaEgiziacaUrl;
+      });
+      mariaEgiziacaButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = mariaEgiziacaUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var sceteUrl = "egito/scete/index.html";
+      var sceteButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Scete, III-V sec.";
+      });
+
+      if (!sceteButton) {
+        return;
+      }
+
+      if (sceteButton.tagName.toLowerCase() === "a") {
+        sceteButton.href = sceteUrl;
+        sceteButton.target = "_self";
+        sceteButton.removeAttribute("rel");
+        return;
+      }
+
+      sceteButton.style.cursor = "pointer";
+      sceteButton.setAttribute("role", "link");
+      sceteButton.setAttribute("tabindex", "0");
+      sceteButton.addEventListener("click", function () {
+        window.location.href = sceteUrl;
+      });
+      sceteButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = sceteUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var avinhaoUrl = "franca/avinhao/index.html";
+      var avinhaoButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        var text = element.textContent.trim();
+        return text === "Avignone, 1433" || text === "Avinhão, 1433";
+      });
+
+      if (!avinhaoButton) {
+        return;
+      }
+
+      if (avinhaoButton.tagName.toLowerCase() === "a") {
+        avinhaoButton.href = avinhaoUrl;
+        avinhaoButton.target = "_self";
+        avinhaoButton.removeAttribute("rel");
+        return;
+      }
+
+      avinhaoButton.style.cursor = "pointer";
+      avinhaoButton.setAttribute("role", "link");
+      avinhaoButton.setAttribute("tabindex", "0");
+      avinhaoButton.addEventListener("click", function () {
+        window.location.href = avinhaoUrl;
+      });
+      avinhaoButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = avinhaoUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var blanotUrl = "franca/blanot/index.html";
+      var blanotButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Blanot, 1331";
+      });
+
+      if (!blanotButton) {
+        return;
+      }
+
+      if (blanotButton.tagName.toLowerCase() === "a") {
+        blanotButton.href = blanotUrl;
+        blanotButton.target = "_self";
+        blanotButton.removeAttribute("rel");
+        return;
+      }
+
+      blanotButton.style.cursor = "pointer";
+      blanotButton.setAttribute("role", "link");
+      blanotButton.setAttribute("tabindex", "0");
+      blanotButton.addEventListener("click", function () {
+        window.location.href = blanotUrl;
+      });
+      blanotButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = blanotUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var bordeauxUrl = "franca/bordeaux/index.html";
+      var bordeauxButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        var text = element.textContent.trim();
+        return text === "Bordeaux, 1822" || text === "Bordéus, 1822";
+      });
+
+      if (!bordeauxButton) {
+        return;
+      }
+
+      if (bordeauxButton.tagName.toLowerCase() === "a") {
+        bordeauxButton.href = bordeauxUrl;
+        bordeauxButton.target = "_self";
+        bordeauxButton.removeAttribute("rel");
+        return;
+      }
+
+      bordeauxButton.style.cursor = "pointer";
+      bordeauxButton.setAttribute("role", "link");
+      bordeauxButton.setAttribute("tabindex", "0");
+      bordeauxButton.addEventListener("click", function () {
+        window.location.href = bordeauxUrl;
+      });
+      bordeauxButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = bordeauxUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var dijonUrl = "franca/dijon/index.html";
+      var dijonButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Dijon, 1430";
+      });
+
+      if (!dijonButton) {
+        return;
+      }
+
+      if (dijonButton.tagName.toLowerCase() === "a") {
+        dijonButton.href = dijonUrl;
+        dijonButton.target = "_self";
+        dijonButton.removeAttribute("rel");
+        return;
+      }
+
+      dijonButton.style.cursor = "pointer";
+      dijonButton.setAttribute("role", "link");
+      dijonButton.setAttribute("tabindex", "0");
+      dijonButton.addEventListener("click", function () {
+        window.location.href = dijonUrl;
+      });
+      dijonButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = dijonUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var douaiUrl = "franca/douai/index.html";
+      var douaiButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Douai, 1254";
+      });
+
+      if (!douaiButton) {
+        return;
+      }
+
+      if (douaiButton.tagName.toLowerCase() === "a") {
+        douaiButton.href = douaiUrl;
+        douaiButton.target = "_self";
+        douaiButton.removeAttribute("rel");
+        return;
+      }
+
+      douaiButton.style.cursor = "pointer";
+      douaiButton.setAttribute("role", "link");
+      douaiButton.setAttribute("tabindex", "0");
+      douaiButton.addEventListener("click", function () {
+        window.location.href = douaiUrl;
+      });
+      douaiButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = douaiUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var faverneyUrl = "franca/faverney/index.html";
+      var faverneyButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Faverney, 1608";
+      });
+
+      if (!faverneyButton) {
+        return;
+      }
+
+      if (faverneyButton.tagName.toLowerCase() === "a") {
+        faverneyButton.href = faverneyUrl;
+        faverneyButton.target = "_self";
+        faverneyButton.removeAttribute("rel");
+        return;
+      }
+
+      faverneyButton.style.cursor = "pointer";
+      faverneyButton.setAttribute("role", "link");
+      faverneyButton.setAttribute("tabindex", "0");
+      faverneyButton.addEventListener("click", function () {
+        window.location.href = faverneyUrl;
+      });
+      faverneyButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = faverneyUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var laRochelleUrl = "franca/la-rochelle/index.html";
+      var laRochelleButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "La Rochelle, 1461";
+      });
+
+      if (!laRochelleButton) {
+        return;
+      }
+
+      if (laRochelleButton.tagName.toLowerCase() === "a") {
+        laRochelleButton.href = laRochelleUrl;
+        laRochelleButton.target = "_self";
+        laRochelleButton.removeAttribute("rel");
+        return;
+      }
+
+      laRochelleButton.style.cursor = "pointer";
+      laRochelleButton.setAttribute("role", "link");
+      laRochelleButton.setAttribute("tabindex", "0");
+      laRochelleButton.addEventListener("click", function () {
+        window.location.href = laRochelleUrl;
+      });
+      laRochelleButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = laRochelleUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var neuvyUrl = "franca/neuvy-saint-sepulcre/index.html";
+      var neuvyButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        var text = element.textContent.trim();
+        return text === "Neuvy Saint Sepulcre, 1257" ||
+          text === "Neuvy-Saint-Sépulcre, 1257" ||
+          text === "Neuvy Saint Sépulcre, 1257";
+      });
+
+      if (!neuvyButton) {
+        return;
+      }
+
+      if (neuvyButton.tagName.toLowerCase() === "a") {
+        neuvyButton.href = neuvyUrl;
+        neuvyButton.target = "_self";
+        neuvyButton.removeAttribute("rel");
+        return;
+      }
+
+      neuvyButton.style.cursor = "pointer";
+      neuvyButton.setAttribute("role", "link");
+      neuvyButton.setAttribute("tabindex", "0");
+      neuvyButton.addEventListener("click", function () {
+        window.location.href = neuvyUrl;
+      });
+      neuvyButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = neuvyUrl;
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var lesUlmesUrl = "franca/les-ulmes/index.html";
+      var lesUlmesButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+        return element.textContent.trim() === "Les Ulmes, 1668";
+      });
+
+      if (!lesUlmesButton) {
+        return;
+      }
+
+      if (lesUlmesButton.tagName.toLowerCase() === "a") {
+        lesUlmesButton.href = lesUlmesUrl;
+        lesUlmesButton.target = "_self";
+        lesUlmesButton.removeAttribute("rel");
+        return;
+      }
+
+      lesUlmesButton.style.cursor = "pointer";
+      lesUlmesButton.setAttribute("role", "link");
+      lesUlmesButton.setAttribute("tabindex", "0");
+      lesUlmesButton.addEventListener("click", function () {
+        window.location.href = lesUlmesUrl;
+      });
+      lesUlmesButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = lesUlmesUrl;
+        }
+      });
+    });
+  </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var marseilleEnBeauvaisUrl = "franca/marseille-en-beauvais/index.html";
+  var marseilleEnBeauvaisLabels = ["Marseille-En-Beauvais, 1533", "Marseille-en-Beauvais, 1533"];
+  var marseilleEnBeauvaisButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+    return marseilleEnBeauvaisLabels.includes(element.textContent.trim());
+  });
+
+  if (!marseilleEnBeauvaisButton) return;
+
+  if (marseilleEnBeauvaisButton.tagName.toLowerCase() === "a") {
+    marseilleEnBeauvaisButton.href = marseilleEnBeauvaisUrl;
+    marseilleEnBeauvaisButton.target = "_self";
+    marseilleEnBeauvaisButton.removeAttribute("rel");
+    return;
+  }
+
+  marseilleEnBeauvaisButton.style.cursor = "pointer";
+  marseilleEnBeauvaisButton.setAttribute("role", "link");
+  marseilleEnBeauvaisButton.setAttribute("tabindex", "0");
+  marseilleEnBeauvaisButton.addEventListener("click", function () {
+    window.location.href = marseilleEnBeauvaisUrl;
+  });
+  marseilleEnBeauvaisButton.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      window.location.href = marseilleEnBeauvaisUrl;
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var parisUrl = "franca/paris/index.html";
+  var parisButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+    return element.textContent.trim() === "Paris, 1290";
+  });
+
+  if (!parisButton) return;
+
+  if (parisButton.tagName.toLowerCase() === "a") {
+    parisButton.href = parisUrl;
+    parisButton.target = "_self";
+    parisButton.removeAttribute("rel");
+    return;
+  }
+
+  parisButton.style.cursor = "pointer";
+  parisButton.setAttribute("role", "link");
+  parisButton.setAttribute("tabindex", "0");
+  parisButton.addEventListener("click", function () {
+    window.location.href = parisUrl;
+  });
+  parisButton.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      window.location.href = parisUrl;
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var pressacUrl = "franca/pressac/index.html";
+  var pressacButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+    return element.textContent.trim() === "Pressac, 1643";
+  });
+
+  if (!pressacButton) return;
+
+  if (pressacButton.tagName.toLowerCase() === "a") {
+    pressacButton.href = pressacUrl;
+    pressacButton.target = "_self";
+    pressacButton.removeAttribute("rel");
+    return;
+  }
+
+  pressacButton.style.cursor = "pointer";
+  pressacButton.setAttribute("role", "link");
+  pressacButton.setAttribute("tabindex", "0");
+  pressacButton.addEventListener("click", function () {
+    window.location.href = pressacUrl;
+  });
+  pressacButton.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      window.location.href = pressacUrl;
+    }
+  });
+});
+</script>
 </body>
 </html>
