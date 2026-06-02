@@ -87,7 +87,14 @@
       font-size: 1.08rem;
     }
 
-    .brand span {
+    .brand > span:not(.logo) {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .brand > span:not(.logo) span {
       display: block;
       margin-top: 3px;
       color: var(--muted);

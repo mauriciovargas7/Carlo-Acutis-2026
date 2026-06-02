@@ -217,7 +217,7 @@
   Este projeto foi desenvolvido para fins educacionais e de portfólio.<br>
   Inspirado no site https://www.miracolieucaristici.org/<br>
   Não possui vínculo com a organização oficial.<br>
-  última atualização 12/05/2026.
+  última atualização 02/06/2026.
 </section>
 
 <section class="hero-carousel" aria-label="Imagens da exposição">
@@ -1351,5 +1351,246 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var germaniaLinks = {
+    "Augsburg, 1194": "alemanha/augsburg/index.html",
+    "Benningen, 1216": "alemanha/benningen/index.html",
+    "Bettbrunn, 1125": "alemanha/bettbrunn/index.html",
+    "Erding, 1417": "alemanha/erding/index.html",
+    "Kranenburg, 1280": "alemanha/kranenburg/index.html",
+    "Regensburg, 1255": "alemanha/regensburg/index.html",
+    "Walldürn, 1330": "alemanha/walldurn/index.html",
+    "Walldurn, 1330": "alemanha/walldurn/index.html",
+    "Weingarten": "alemanha/weingarten/index.html",
+    "Wilsnack, 1383": "alemanha/wilsnack/index.html"
+  };
+
+  Object.keys(germaniaLinks).forEach(function (label) {
+    var item = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+      return element.textContent.trim() === label;
+    });
+
+    if (!item) return;
+
+    if (item.tagName.toLowerCase() === "a") {
+      item.href = germaniaLinks[label];
+      item.target = "_self";
+      item.removeAttribute("rel");
+      return;
+    }
+
+    item.style.cursor = "pointer";
+    item.setAttribute("role", "link");
+    item.setAttribute("tabindex", "0");
+    item.addEventListener("click", function () {
+      window.location.href = germaniaLinks[label];
+    });
+    item.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        window.location.href = germaniaLinks[label];
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var chirattakonamUrl = "india/chirattakonam/index.html";
+  var chirattakonamButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+    return element.textContent.trim() === "Chirattakonam, 2001";
+  });
+
+  if (!chirattakonamButton) return;
+
+  if (chirattakonamButton.tagName.toLowerCase() === "a") {
+    chirattakonamButton.href = chirattakonamUrl;
+    chirattakonamButton.target = "_self";
+    chirattakonamButton.removeAttribute("rel");
+    return;
+  }
+
+  chirattakonamButton.style.cursor = "pointer";
+  chirattakonamButton.setAttribute("role", "link");
+  chirattakonamButton.setAttribute("tabindex", "0");
+  chirattakonamButton.addEventListener("click", function () {
+    window.location.href = chirattakonamUrl;
+  });
+  chirattakonamButton.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      window.location.href = chirattakonamUrl;
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var morneRougeUrl = "ilha-de-martinica/morne-rouge/index.html";
+  var morneRougeButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+    return element.textContent.trim() === "Morne-Rouge, 1902";
+  });
+
+  if (!morneRougeButton) return;
+
+  if (morneRougeButton.tagName.toLowerCase() === "a") {
+    morneRougeButton.href = morneRougeUrl;
+    morneRougeButton.target = "_self";
+    morneRougeButton.removeAttribute("rel");
+    return;
+  }
+
+  morneRougeButton.style.cursor = "pointer";
+  morneRougeButton.setAttribute("role", "link");
+  morneRougeButton.setAttribute("tabindex", "0");
+  morneRougeButton.addEventListener("click", function () {
+    window.location.href = morneRougeUrl;
+  });
+  morneRougeButton.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      window.location.href = morneRougeUrl;
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var saintAndreReuniaoUrl = "ilha-reuniao/saint-andre/index.html";
+  var saintAndreReuniaoButton = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+    return element.textContent.trim() === "Saint-André da Reunião, 1902";
+  });
+
+  if (!saintAndreReuniaoButton) return;
+
+  if (saintAndreReuniaoButton.tagName.toLowerCase() === "a") {
+    saintAndreReuniaoButton.href = saintAndreReuniaoUrl;
+    saintAndreReuniaoButton.target = "_self";
+    saintAndreReuniaoButton.removeAttribute("rel");
+    return;
+  }
+
+  saintAndreReuniaoButton.style.cursor = "pointer";
+  saintAndreReuniaoButton.setAttribute("role", "link");
+  saintAndreReuniaoButton.setAttribute("tabindex", "0");
+  saintAndreReuniaoButton.addEventListener("click", function () {
+    window.location.href = saintAndreReuniaoUrl;
+  });
+  saintAndreReuniaoButton.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      window.location.href = saintAndreReuniaoUrl;
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var italiaLinks = {
+    "Alatri, 1228": "italia/alatri/index.html",
+    "Santa Clara de Assis, 1240": "italia/santa-clara-de-assis/index.html",
+    "Santa Clara de Assis, - 1240": "italia/santa-clara-de-assis/index.html",
+    "Asti, 1535": "italia/asti/index.html",
+    "Bagno di Romagna, 1412": "italia/bagno-di-romagna/index.html",
+    "Bolsena, 1264": "italia/bolsena/index.html",
+    "Canosio, 1630": "italia/canosio/index.html",
+    "Cascia, 1330": "italia/cascia/index.html",
+    "Cava dei Tirreni, 1656": "italia/cava-dei-tirreni/index.html",
+    "Dronero, 1631": "italia/dronero/index.html",
+    "São Mauro La Bruca, 1969": "italia/sao-mauro-la-bruca/index.html",
+    "Ferrara, 1171": "italia/ferrara/index.html",
+    "Florença, 1230-1595": "italia/florenca/index.html",
+    "Gruaro (Valvasone), 1294": "italia/gruaro-valvasone/index.html",
+    "Lanciano, 750 D.C.": "italia/lanciano/index.html",
+    "Macerata, 1356": "italia/macerata/index.html",
+    "Mogoro, 1604": "italia/mogoro/index.html",
+    "Morrovalle, 1560": "italia/morrovalle/index.html",
+    "Offida, 1273-1280": "italia/offida/index.html",
+    "Patierno (Nàpoles), 1772": "italia/patierno-napoles/index.html",
+    "Patierno (Nápoles), 1772": "italia/patierno-napoles/index.html",
+    "Rimini, 1227": "italia/rimini/index.html",
+    "Roma, VI-VII sec.": "italia/roma-vi-vii-sec/index.html",
+    "Roma, 1610": "italia/milagre.html?id=roma-1610",
+    "Rosano, 1948": "italia/rosano/index.html",
+    "São Pedro Damião, XI sec.": "italia/sao-pedro-damiao/index.html",
+    "Salzano, 1517": "italia/salzano/index.html",
+    "Scala, 1732": "italia/scala/index.html",
+    "Siena, 1730": "italia/milagre.html?id=siena-1730",
+    "Trani, XI sec.": "italia/milagre.html?id=trani-xi-sec",
+    "Turim, 1453": "italia/milagre.html?id=turim-1453",
+    "Turim, 1640": "italia/milagre.html?id=turim-1640",
+    "Veroli, 1570": "italia/milagre.html?id=veroli-1570",
+    "Volterra, 1472": "italia/milagre.html?id=volterra-1472"
+  };
+
+  Object.keys(italiaLinks).forEach(function (label) {
+    var item = Array.from(document.querySelectorAll("a, button, li, div, span")).find(function (element) {
+      return element.textContent.trim() === label;
+    });
+    if (!item) return;
+    if (item.tagName.toLowerCase() === "a") {
+      item.href = italiaLinks[label];
+      item.target = "_self";
+      item.removeAttribute("rel");
+      return;
+    }
+    item.style.cursor = "pointer";
+    item.setAttribute("role", "link");
+    item.setAttribute("tabindex", "0");
+    item.addEventListener("click", function () {
+      window.location.href = italiaLinks[label];
+    });
+    item.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        window.location.href = italiaLinks[label];
+      }
+    });
+  });
+});
+</script>
+  <script>
+    const localMiraclePages = {
+      "Scala, 1732": "italia/scala/index.html",
+      "Siena, 1730": "italia/siena/index.html",
+      "Trani, XI sec.": "italia/trani/index.html",
+      "Turim, 1453": "italia/turim-1453/index.html",
+      "Turim, 1640": "italia/turim-1640/index.html",
+      "Veroli, 1570": "italia/veroli/index.html",
+      "Volterra, 1472": "italia/volterra/index.html"
+    };
+
+    document.addEventListener("click", function (event) {
+      const clickedItem = event.target.closest("a, button, li, .list-item, .miracle-item, .country-item, [onclick]");
+      if (!clickedItem) return;
+
+      const label = clickedItem.textContent.trim().replace(/\s+/g, " ");
+      const localPage = localMiraclePages[label] || localMiraclePages[Object.keys(localMiraclePages).find((key) => label.includes(key))];
+      if (!localPage) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      window.location.href = localPage;
+    }, true);
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const customMiracleLinks = {
+        "Scala, 1732": "italia/scala/index.html",
+        "Siena, 1730": "italia/siena/index.html",
+        "Trani, XI sec.": "italia/trani/index.html",
+        "Turim, 1453": "italia/turim-1453/index.html",
+        "Turim, 1640": "italia/turim-1640/index.html",
+        "Veroli, 1570": "italia/veroli/index.html",
+        "Volterra, 1472": "italia/volterra/index.html"
+      };
+      document.querySelectorAll("a").forEach(function (link) {
+        const label = link.textContent.trim();
+        if (customMiracleLinks[label]) {
+          link.href = customMiracleLinks[label];
+        }
+      });
+    });
+  </script>
 </body>
 </html>
