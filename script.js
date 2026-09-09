@@ -34,6 +34,11 @@ const directory = [
     items: ["Buenos Aires, 1922-1994-1996"],
   },
   {
+    title: "Brasil",
+    countLabel: "1 item",
+    items: ["Piedade do Paraopeba, 2020"],
+  },
+  {
     title: "Áustria",
     countLabel: "3 itens",
     items: ["Fiecht, 1310", "Seefeld, 1384", "Weiten-Raxendorf, 1411"],
