@@ -52,11 +52,14 @@
       .dots-menu.is-open .dots-menu__panel { display:grid!important; }
     }
   </style>
-</head>
+<style class="eucharistic-mark-style">
+.mark { background: url('../../eucharistic-icon.png') center / contain no-repeat !important; color: transparent !important; border-color: transparent !important; }
+.mark::before, .mark::after { content: none !important; }
+</style></head>
 <body>
   <main class="page">
     <nav class="topbar" aria-label="Navegação">
-      <a class="brand" href="../../index.html"><span class="mark">CA</span><span class="brand-text"><strong>Milagres Eucarísticos</strong><span class="brand-subtitle">Exposição internacional de Carlo Acutis</span></span></a>
+      <a class="brand" href="../../index.html"><span class="mark" role="img" aria-label="Símbolo eucarístico"></span><span class="brand-text"><strong>Milagres Eucarísticos</strong><span class="brand-subtitle">Exposição internacional de Carlo Acutis</span></span></a>
       <div class="dots-menu"><button class="dots-menu__button" type="button" aria-label="Abrir menu" aria-expanded="false"><span class="dots-menu__icon"></span><span>Menu</span></button><div class="dots-menu__panel"><a href="../../index.html">Início</a><a href="../../biografia.html">Biografia</a><a href="../../contatos.html">Contatos</a><a href="../../pref_RM.html">Prefácios</a><a href="../../index.html#lista">Lista</a><a href="../../index.html#contexto">Contexto</a></div></div>
     </nav>
 

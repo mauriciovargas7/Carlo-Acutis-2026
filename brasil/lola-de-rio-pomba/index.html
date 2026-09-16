@@ -16,10 +16,13 @@
     .article { width:min(830px,100%); margin:42px auto 0; padding:clamp(26px,5vw,52px); border:1px solid var(--line); border-radius:8px; background:var(--panel); }.article h2 { margin:0 0 22px; font-size:clamp(34px,4vw,52px); }.article p { margin:0 0 20px; color:var(--muted); font-size:17px; line-height:1.85; }.article a { color:var(--gold); }.notice { margin-top:30px; padding:20px; border-left:3px solid var(--gold); background:rgba(222,182,90,.08); color:var(--muted); line-height:1.7; }
     @media (max-width:720px) { .page { width:min(100% - 32px,560px); padding-top:18px; }.topbar { align-items:flex-start; }.brand strong { font-size:16px; }.brand span span { font-size:13px; }.logo { flex-basis:48px; width:48px; height:48px; }.hero { grid-template-columns:1fr; gap:25px; padding:42px 0 30px; }.hero h1 { font-size:52px; }.portrait { max-width:420px; }.article { margin-top:25px; padding:28px 24px; }.article p { font-size:16px; }.menu-panel { left:0; right:auto; } }
   </style>
-</head>
+<style class="eucharistic-icon-style">
+.logo, .brand-mark { background: url('../../eucharistic-icon.png') center / contain no-repeat !important; color: transparent !important; border-color: transparent !important; }
+.logo::before, .logo::after, .brand-mark::before, .brand-mark::after { content: none !important; }
+</style></head>
 <body>
   <main class="page">
-    <header class="topbar"><a class="brand" href="../../index.html"><span class="logo">CA</span><span><strong>Milagres Eucarísticos</strong><span>Exposição internacional de Carlo Acutis</span></span></a><div class="menu-wrap"><button class="menu-button" type="button" aria-expanded="false"><span class="menu-icon"></span>Menu</button><nav class="menu-panel"><a href="../../index.html">Início</a><a href="../index.html">Brasil</a><a href="../../biografia.html">Biografia de Carlo Acutis</a><a href="../../contatos.html">Contatos</a></nav></div></header>
+    <header class="topbar"><a class="brand" href="../../index.html"><span class="logo" role="img" aria-label="Símbolo eucarístico"></span><span><strong>Milagres Eucarísticos</strong><span>Exposição internacional de Carlo Acutis</span></span></a><div class="menu-wrap"><button class="menu-button" type="button" aria-expanded="false"><span class="menu-icon"></span>Menu</button><nav class="menu-panel"><a href="../../index.html">Início</a><a href="../index.html">Brasil</a><a href="../../biografia.html">Biografia de Carlo Acutis</a><a href="../../contatos.html">Contatos</a></nav></div></header>
     <section class="hero"><div><p class="eyebrow">Rio Pomba, Minas Gerais</p><h1>A Serva de Deus Lola de Rio Pomba</h1><p class="lead">Uma história de intensa vida de oração, adoração e devoção à Eucaristia, preservada na memória de sua comunidade.</p></div><figure class="portrait"><img src="lola-rio-pomba.png" alt="Lola de Rio Pomba usando véu branco"><figcaption>Registro fotográfico de Lola de Rio Pomba.</figcaption></figure></section>
     <article class="article">
       <p class="eyebrow">Floripes Dornelas de Jesus, 1913-1999</p>

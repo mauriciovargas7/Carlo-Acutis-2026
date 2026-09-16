@@ -191,14 +191,17 @@
       margin-bottom: 10px;
     }
   </style>
-</head>
+<style class="eucharistic-icon-style">
+.logo, .brand-mark { background: url('eucharistic-icon.png') center / contain no-repeat !important; color: transparent !important; border-color: transparent !important; }
+.logo::before, .logo::after, .brand-mark::before, .brand-mark::after { content: none !important; }
+</style></head>
   <body>
     <div class="backdrop backdrop-a" aria-hidden="true"></div>
     <div class="backdrop backdrop-b" aria-hidden="true"></div>
 
     <header class="topbar">
       <a class="brand" href="#inicio" aria-label="Ir para o início">
-        <span class="brand-mark">CA</span>
+        <span class="brand-mark" role="img" aria-label="Símbolo eucarístico"></span>
         <span class="brand-copy">
           <strong>Milagres Eucarísticos</strong>
           <small>Exposição internacional de Carlo Acutis</small>
@@ -217,7 +220,7 @@
   Este projeto foi desenvolvido para fins educacionais e de portfólio.<br>
   Inspirado no site https://www.miracolieucaristici.org/<br>
   Não possui vínculo com a organização oficial.<br>
-  última atualização 16/09/2026.
+  última atualização 02/06/2026.
 </section>
 
 <section class="hero-carousel" aria-label="Imagens da exposição">
@@ -1511,7 +1514,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "Patierno (Nápoles), 1772": "italia/patierno-napoles/index.html",
     "Rimini, 1227": "italia/rimini/index.html",
     "Roma, VI-VII sec.": "italia/roma-vi-vii-sec/index.html",
-    "Roma, 1610": "italia/milagre.html?id=roma-1610",
+    "Roma, 1610": "italia/roma-1610/index.html",
     "Rosano, 1948": "italia/rosano/index.html",
     "São Pedro Damião, XI sec.": "italia/sao-pedro-damiao/index.html",
     "Salzano, 1517": "italia/salzano/index.html",
@@ -1552,6 +1555,13 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
   <script>
     const localMiraclePages = {
+      "Gerona, 1297": "espanha/gerona/index.html",
+      "Daroca, 1239": "espanha/daroca/index.html",
+      "Cimballa, 1370": "espanha/cimballa/index.html",
+      "Caravaca de la Cruz, 1231": "espanha/caravaca-de-la-cruz/index.html",
+      "Alcoy, 1568": "espanha/alcoy/index.html",
+      "Alcalà, 1597": "espanha/alcala/index.html",
+      "Alboraya-Almacéra, 1348": "espanha/alboraya-almacera/index.html",
       "Scala, 1732": "italia/scala/index.html",
       "Siena, 1730": "italia/siena/index.html",
       "Trani, XI sec.": "italia/trani/index.html",

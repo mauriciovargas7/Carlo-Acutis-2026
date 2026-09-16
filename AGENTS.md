@@ -56,3 +56,13 @@ Para concluir esse vínculo:
 2. Atualizar `countLabel` com a quantidade correta de itens.
 3. Criar ou atualizar o mapeamento do rótulo no `index.html` para abrir a página local correta.
 4. Verificar que o item aparece na home e abre a página local, sem redirecionar ao site externo.
+## Ícone visual obrigatório
+
+O ícone padrão do projeto é a imagem `eucharistic-icon.png`, localizada na raiz do projeto. Não usar mais as letras `CA` como conteúdo visual do cabeçalho.
+
+Em cada página nova:
+
+1. Calcular o caminho relativo correto até `eucharistic-icon.png`.
+2. Usar o arquivo como fundo de `.logo`, `.brand-mark` ou `.mark`, com `background: url("caminho-relativo/eucharistic-icon.png") center / contain no-repeat`.
+3. Deixar o conteúdo textual do ícone vazio e usar `aria-label="Símbolo eucarístico"`. Antes de concluir, pesquisar por `<span class="logo">CA</span>`, `<span class="brand-mark">CA</span>` e `<span class="mark">CA</span>`; nenhum deles deve permanecer.
+4. Conferir em desktop e celular que não há corte, borda excedente ou espaço vazio excessivo ao redor do símbolo.
