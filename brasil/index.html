@@ -71,7 +71,7 @@
     }
 
     .brand strong,
-    .brand span {
+    .brand span:not(.logo) {
       display: block;
     }
 
@@ -289,11 +289,12 @@
 
       .hero {
         grid-template-columns: 1fr;
-        gap: 26px;
-        padding: 54px 0 32px;
+        gap: 20px;
+        padding: 24px 0 28px;
       }
 
-      .hero h1 { font-size: 62px; }
+      .hero h1 { font-size: 48px; }
+      .hero-note { padding: 18px; }
 
       .content {
         grid-template-columns: 1fr;

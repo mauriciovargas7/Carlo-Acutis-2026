@@ -35,8 +35,8 @@ const directory = [
   },
   {
     title: "Brasil",
-    countLabel: "1 item",
-    items: ["Piedade do Paraopeba, 2020"],
+    countLabel: "2 itens",
+    items: ["Piedade do Paraopeba, 2020", "Lola de Rio Pomba, 1913-1999"],
   },
   {
     title: "Áustria",
