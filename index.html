@@ -9,6 +9,8 @@
       content="Refatoração moderna da página de lista da Exposição Internacional dos Milagres Eucarísticos."
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" />
+    <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js" defer></script>
     <script src="script.js" defer></script>
   <style>
     html,
@@ -194,7 +196,8 @@
 <style class="eucharistic-icon-style">
 .logo, .brand-mark { background: url('eucharistic-icon.png') center / contain no-repeat !important; color: transparent !important; border-color: transparent !important; }
 .logo::before, .logo::after, .brand-mark::before, .brand-mark::after { content: none !important; }
-</style></head>
+</style>  <link rel="stylesheet" href="liturgical-v2.css" />
+</head>
   <body>
     <div class="backdrop backdrop-a" aria-hidden="true"></div>
     <div class="backdrop backdrop-b" aria-hidden="true"></div>
@@ -211,6 +214,7 @@
       <nav class="nav">
         <a href="#prefacios">Prefácios</a>
         <a href="#lista">Lista</a>
+        <a href="#mapa">Mapa</a>
         <a href="#contexto">Contexto</a>
       </nav>
 </header>
@@ -220,7 +224,7 @@
   Este projeto foi desenvolvido para fins educacionais e de portfólio.<br>
   Inspirado no site https://www.miracolieucaristici.org/<br>
   Não possui vínculo com a organização oficial.<br>
-  última atualização 02/06/2026.
+  última atualização 23/09/2026.
 </section>
 
 <section class="hero-carousel" aria-label="Imagens da exposição">
@@ -294,6 +298,30 @@
         </aside>
       </section>
 
+      <section id="mapa" class="section atlas-section" aria-labelledby="mapa-titulo">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Atlas eucarístico</p>
+            <h2 id="mapa-titulo">O mundo reunido em um mapa</h2>
+          </div>
+          <p id="atlas-description">Selecione um marcador para abrir o país correspondente na lista de milagres.</p>
+          <div class="atlas-views" role="group" aria-label="Escolher região do atlas">
+            <button class="atlas-view is-active" type="button" data-atlas-view="mundo" aria-pressed="true">Mundo</button>
+            <button class="atlas-view" type="button" data-atlas-view="americas" aria-pressed="false">Américas</button>
+            <button class="atlas-view" type="button" data-atlas-view="europa" aria-pressed="false">Europa</button>
+            <button class="atlas-view" type="button" data-atlas-view="africa" aria-pressed="false">África</button>
+            <button class="atlas-view" type="button" data-atlas-view="asia" aria-pressed="false">Ásia</button>
+          </div>
+        </div>
+        <div class="atlas-shell">
+          <div id="world-map" role="application" aria-label="Mapa interativo dos países com milagres eucarísticos"></div>
+          <aside class="atlas-note">
+            <p class="section-kicker">Como explorar</p>
+            <h3>Um atlas para a peregrinação</h3>
+            <p>Os números dourados indicam quantos registros estão reunidos em cada país. Use o zoom e toque em um marcador para abrir sua lista.</p>
+          </aside>
+        </div>
+      </section>
       <section id="prefacios" class="section">
         <div class="section-head">
           <div>
@@ -1555,6 +1583,64 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
   <script>
     const localMiraclePages = {
+      "Fátima, Portugal, O Anjo da Paz, 1916": "marianos/fatima-anjo-da-paz/index.html",
+      "• Santa Teresa d’Avila": "comunhoes-prodigiosas/segunda-parte/index.html",
+      "• São Gregório Magno": "comunhoes-prodigiosas/segunda-parte/index.html",
+      "• Santa Francisca Romana": "comunhoes-prodigiosas/segunda-parte/index.html",
+      "• Santa Clara de Montefalco": "comunhoes-prodigiosas/segunda-parte/index.html",
+      "• Santa Agnese Segni": "comunhoes-prodigiosas/segunda-parte/index.html",
+      "• A Beata Ângela de Foligno": "comunhoes-prodigiosas/segunda-parte/index.html",
+      "Comunhões Prodigiosas (segunda parte)": "comunhoes-prodigiosas/segunda-parte/index.html",
+      "• São Segundo": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• Santa Maria Francisca das Cinco Chagas": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• Santa Lúcia Filippini": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• Santa Juliana Falconieri": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• São Jerónimo": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• São Geraldo de Maiella": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• São Bonaventura": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• São Bernardo": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• O Beato Tomás da Cori": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• O Beato Giacomo da Montieri": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• A Beata Imelda Lambertini": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "• A Beata Emilia Bicchieri": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "Comunhões Prodigiosas (primeira parte)": "comunhoes-prodigiosas/primeira-parte/index.html",
+      "Parisi, França, Santa Catarina Labouré, 1830": "marianos/santa-catarina-laboure/index.html",
+      "Lourdes, França, Santa Bernardete, 1888": "marianos/lourdes/index.html",
+      "Guadalupe, México, Juan Diego, 1531": "marianos/guadalupe/index.html",
+      "Calanda, Espanha, Miguel-Juan Pellicer, 1640": "marianos/calanda/index.html",
+      "Teresa Neumann, 1898-1962": "santos-misticos/teresa-neumann/index.html",
+      "André de Frossard, séc. XX": "santos-misticos/andre-de-frossard/index.html",
+      "Venerável Marthe Robin, 1902-1981": "santos-misticos/marthe-robin/index.html",
+      "Serva de Deus Anne-Louise Lateau, 1850": "santos-misticos/anne-louise-lateau/index.html",
+      "São Nicolau de Flue, 1417": "santos-misticos/sao-nicolau-de-flue/index.html",
+      "Beato Nicolau Stenon (Niels Steensen) , 1638-1686": "santos-misticos/beato-nicolau-stenon/index.html",
+      "Beata Anna Katherina Emmerick, 1774-1824": "santos-misticos/beata-anna-katherina-emmerick/index.html",
+      "Beata Alexandrina Maria Da Costa, 1904-1955": "santos-misticos/beata-alexandrina-maria-da-costa/index.html",
+      "Santa Catarina da Siena, 1347-1380": "santos-misticos/santa-catarina-da-siena/index.html",
+      "São Sátiro, séc. IV": "santos-misticos/sao-satiro/index.html",
+      "Santa Faustina Kowalska, séc. XX": "santos-misticos/santa-faustina-kowalska/index.html",
+      "São Stanislaus Kostka, 1550-1568": "santos-misticos/sao-stanislaus-kostka/index.html",
+      "Santo Egídio": "santos-misticos/santo-egidio/index.html",
+      "Santa Germana Cousin (Pibrac), 1589": "santos-misticos/santa-germana-cousin/index.html",
+      "São João Bosco, 1848": "santos-misticos/sao-joao-bosco/index.html",
+      "São Bernardo de Claraval, séc. XII": "santos-misticos/sao-bernardo-de-claraval/index.html",
+      "São Francisco de Assis, séc. XIII": "santos-misticos/sao-francisco-de-assis/index.html",
+      "São Tomás de Aquino, 1224-1274": "santos-misticos/sao-tomas-de-aquino/index.html",
+      "Santa Margarida Maria de Alacoque - Sagrado Coração de Jesus, séc. XVII": "santos-misticos/santa-margarida-maria-alacoque/index.html",
+      "Betania, 1991": "venezuela/betania/index.html",
+      "Ettiswil, 1447": "suica/ettiswil/index.html",
+      "Zaragoza, 1427": "espanha/zaragoza/index.html",
+      "Valença": "espanha/valenca/index.html",
+      "Silla, 1907": "espanha/silla/index.html",
+      "S. Juan de las Abadesas , 1251": "espanha/s-juan-de-las-abadesas/index.html",
+      "Ponferrada, 1533": "espanha/ponferrada/index.html",
+      "Onil, 1824": "espanha/onil/index.html",
+      "O'Cebreiro, 1300": "espanha/ocebreiro/index.html",
+      "Montserrat, 1657": "espanha/montserrat/index.html",
+      "Moncada, 1392": "espanha/moncada/index.html",
+      "Ivorra, 1010": "espanha/ivorra/index.html",
+      "Guadalupe, 1420": "espanha/guadalupe/index.html",
+      "Gorkum-El Escorial, 1572": "espanha/gorkum-el-escorial/index.html",
       "Gerona, 1297": "espanha/gerona/index.html",
       "Daroca, 1239": "espanha/daroca/index.html",
       "Cimballa, 1370": "espanha/cimballa/index.html",

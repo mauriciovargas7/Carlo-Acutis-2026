@@ -66,3 +66,11 @@ Em cada página nova:
 2. Usar o arquivo como fundo de `.logo`, `.brand-mark` ou `.mark`, com `background: url("caminho-relativo/eucharistic-icon.png") center / contain no-repeat`.
 3. Deixar o conteúdo textual do ícone vazio e usar `aria-label="Símbolo eucarístico"`. Antes de concluir, pesquisar por `<span class="logo">CA</span>`, `<span class="brand-mark">CA</span>` e `<span class="mark">CA</span>`; nenhum deles deve permanecer.
 4. Conferir em desktop e celular que não há corte, borda excedente ou espaço vazio excessivo ao redor do símbolo.
+## Aviso e data de atualização
+
+Em toda alteração feita no site, conferir o cartão **Aviso** da página inicial antes de concluir.
+
+1. Uma vez por dia em que houver alteração, atualizar a linha `última atualização DD/MM/AAAA` para a data atual.
+2. Se a data já corresponder ao dia atual, não é necessário alterar novamente naquele mesmo dia.
+3. Preservar o conteúdo do aviso: projeto educacional e de portfólio, inspirado em `https://www.miracolieucaristici.org/`, sem vínculo com a organização oficial.
+4. A regra vale para a versão do site que estiver sendo editada.

@@ -17,8 +17,12 @@
     .card,.side-card,.viewer { border: 1px solid rgba(223,184,90,.28); border-radius: 18px; background: rgba(12,24,29,.9); box-shadow: 0 22px 70px rgba(0,0,0,.22); }.side-card,.card { padding: 28px; }.side-card h2,.card h2 { font-size: 2rem; }.content-grid { display: grid; grid-template-columns: minmax(280px,.9fr) minmax(0,1.4fr); gap: 24px; }.summary-section + .summary-section { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(223,184,90,.16); }.summary-section h3 { margin-bottom: 10px; color: #dfb85a; font-family: "Segoe UI",Arial,sans-serif; font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; }.viewer { overflow: hidden; background: rgba(9,21,26,.96); }.viewer-head { padding: 22px 24px; border-bottom: 1px solid rgba(223,184,90,.28); }iframe { display: block; width: 100%; min-height: 720px; border: 0; background: #fff; }.source a { color: #f0c75e; text-decoration: underline; text-underline-offset: 3px; }
     @media (max-width:900px) { .hero,.content-grid { grid-template-columns:1fr; } } @media (max-width:760px) { .page { width:min(100% - 32px,560px); padding-top:24px; }.topbar { align-items:flex-start; flex-direction:column; gap:20px; }.dots-menu { align-self:flex-start; }.dots-menu__panel { left:0; right:auto; top:calc(100% + 10px); width:min(220px,calc(100vw - 32px)); }.dots-menu:not(.is-open) .dots-menu__panel { display:none; }.dots-menu.is-open .dots-menu__panel { display:grid; }h1 { font-size:clamp(2.45rem,16vw,4.15rem); }.lead { font-size:1rem; }.side-card,.card { padding:24px; }iframe { min-height:520px; } }
   </style>
+  <link rel="stylesheet" href="../../liturgical-v2.css" />
+<link rel="stylesheet" href="../../city-navigation.css">
+<script src="../../city-navigation-data.js" defer></script>
+<script src="../../city-navigation.js" defer></script>
 </head>
-<body>
+<body class="city-panel-page">
   <main class="page">
     <header class="topbar">
       <a class="brand" href="../../index.html"><span class="logo" role="img" aria-label="Símbolo eucarístico"></span><span><span class="brand-title">Milagres Eucarísticos</span><span class="brand-subtitle">Exposição internacional de Carlo Acutis</span></span></a>

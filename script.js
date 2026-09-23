@@ -313,7 +313,7 @@ function renderDirectory() {
   directoryRoot.innerHTML = directory
     .map(
       (group) => `
-        <article class="group-card" data-group data-search="${escapeHtml(
+        <article class="group-card is-collapsed" data-group data-search="${escapeHtml(
           [group.title, group.countLabel, ...group.items].join(" "),
         )}">
           <header>
@@ -321,7 +321,12 @@ function renderDirectory() {
               <p class="section-kicker">${group.title}</p>
               <h3>${group.title}</h3>
             </div>
-            <span class="group-meta">${group.countLabel}</span>
+            <div class="group-card-actions">
+              <span class="group-meta">${group.countLabel}</span>
+              <button class="group-toggle" type="button" data-group-toggle aria-expanded="false" aria-label="Exibir itens de ${escapeHtml(group.title)}" title="Exibir itens">
+                <span class="group-toggle__icon" aria-hidden="true"></span>
+              </button>
+            </div>
           </header>
           <ul class="entry-list">
             ${group.items
@@ -365,12 +370,166 @@ function applySearch() {
 
     const visible = !term || groupMatches > 0 || titleMatch;
     group.classList.toggle("is-hidden", !visible);
+    if (term && visible) {
+      group.classList.remove("is-collapsed");
+      const toggle = group.querySelector("[data-group-toggle]");
+      if (toggle) {
+        const title = group.querySelector("h3")?.textContent ?? "este grupo";
+        toggle.setAttribute("aria-expanded", "true");
+        toggle.setAttribute("aria-label", `Ocultar itens de ${title}`);
+        toggle.title = "Ocultar itens";
+      }
+    }
     visibleItems += visible ? groupMatches : 0;
   });
 
   miraclesStat.textContent = term ? String(visibleItems || 0) : "136";
 }
 
-renderSupporting();
+
+const atlasPoints = [
+  { title: "Argentina", coords: [-34.6, -58.4], region: "americas", positions: { americas: [56, 86] } },
+  { title: "Brasil", coords: [-14.2, -51.9], region: "americas", positions: { americas: [60, 69] } },
+  { title: "Áustria", coords: [47.6, 14.1], region: "europa", positions: { europa: [58, 56] } },
+  { title: "Bélgica", coords: [50.8, 4.5], region: "europa", positions: { europa: [43, 49] } },
+  { title: "Colômbia", coords: [4.6, -74.1], region: "americas", positions: { americas: [45, 60] } },
+  { title: "Croácia", coords: [45.2, 15.4], region: "europa", positions: { europa: [62, 62] } },
+  { title: "Egito", coords: [26.8, 30.8], region: "africa", positions: { africa: [57, 27] } },
+  { title: "França", coords: [46.5, 2.4], region: "europa", positions: { europa: [39, 59] } },
+  { title: "Alemanha", coords: [51.0, 10.3], region: "europa", positions: { europa: [52, 49] } },
+  { title: "Índia", coords: [21.0, 78.0], region: "asia", positions: { asia: [52, 62] } },
+  { title: "Ilha de Martinica", coords: [14.6, -61.0], region: "americas", positions: { americas: [53, 54] } },
+  { title: "Ilha Reunião", coords: [-21.1, 55.5], region: "africa", positions: { africa: [77, 84] } },
+  { title: "Itália", coords: [42.8, 12.5], region: "europa", positions: { europa: [55, 68] } },
+  { title: "México", coords: [23.6, -102.5], region: "americas", positions: { americas: [29, 43] } },
+  { title: "Holanda", coords: [52.2, 5.3], region: "europa", positions: { europa: [46, 44] } },
+  { title: "Peru", coords: [-9.2, -75.0], region: "americas", positions: { americas: [43, 73] } },
+  { title: "Polônia", coords: [52.1, 19.4], region: "europa", positions: { europa: [61, 43] } },
+  { title: "Portugal", coords: [39.5, -8.0], region: "europa", positions: { europa: [22, 64] } },
+  { title: "Espanha", coords: [40.3, -3.7], region: "europa", positions: { europa: [30, 67] } },
+  { title: "Suíça", coords: [46.8, 8.2], region: "europa", positions: { europa: [49, 59] } },
+  { title: "Venezuela", coords: [7.0, -66.0], region: "americas", positions: { americas: [55, 58] } },
+];
+
+const atlasViews = {
+  mundo: { label: "O mundo reunido em um mapa", bounds: [[-160, -55], [160, 72]] },
+  americas: { label: "Milagres nas Américas", bounds: [[-125, -56], [-30, 65]] },
+  europa: { label: "Milagres na Europa", bounds: [[-16, 34], [40, 65]] },
+  africa: { label: "Milagres na África", bounds: [[-20, -35], [55, 38]] },
+  asia: { label: "Milagres na Ásia", bounds: [[40, 0], [145, 65]] },
+};
+
+const atlasCityCoordinates = {
+  "Argentina|Buenos Aires": [-34.6037, -58.3816],
+  "Brasil|Piedade do Paraopeba": [-20.125, -44.41], "Brasil|Lola de Rio Pomba": [-21.274, -43.18],
+  "Áustria|Fiecht": [47.35, 11.69], "Áustria|Seefeld": [47.33, 11.19], "Áustria|Weiten-Raxendorf": [48.29, 15.08],
+  "Bélgica|Bois-Seigneur-Isaac": [50.63, 4.26], "Bélgica|Bruges": [51.21, 3.22], "Bélgica|Bruxelas": [50.85, 4.35], "Bélgica|Herentals": [51.18, 4.83], "Bélgica|Herkenrode-Hasselt": [50.96, 5.29], "Bélgica|Liège": [50.63, 5.57], "Bélgica|Middleburg-Lovanio": [50.88, 4.7],
+  "Colômbia|Tumaco": [1.81, -78.76], "Croácia|Ludbreg": [46.25, 16.61],
+  "Egito|S. Maria Egiziaca": [30.04, 31.24], "Egito|Scete": [30.65, 29.75],
+  "França|Avignone": [43.95, 4.81], "França|Blanot": [46.56, 4.72], "França|Bordeaux": [44.84, -0.58], "França|Dijon": [47.32, 5.04], "França|Douai": [50.37, 3.08], "França|Faverney": [47.77, 6.1], "França|La Rochelle": [46.16, -1.15], "França|Neuvy Saint Sepulcre": [46.6, 1.81], "França|Les Ulmes": [47.22, -0.18], "França|Marseille-En-Beauvais": [49.6, 2.35], "França|Paris": [48.86, 2.35], "França|Pressac": [46.1, 0.57],
+  "Alemanha|Augsburg": [48.37, 10.9], "Alemanha|Benningen": [48.03, 10.22], "Alemanha|Bettbrunn": [48.89, 11.72], "Alemanha|Erding": [48.3, 11.91], "Alemanha|Kranenburg": [51.79, 6.01], "Alemanha|Regensburg": [49.02, 12.1], "Alemanha|Walldürn": [49.58, 9.37], "Alemanha|Weingarten": [47.81, 9.64], "Alemanha|Wilsnack": [52.96, 11.95],
+  "Índia|Chirattakonam": [8.5, 76.9], "Ilha de Martinica|Morne-Rouge": [14.78, -61.13], "Ilha Reunião|Saint-André da Reunião": [-20.96, 55.65],
+  "Itália|Alatri": [41.73, 13.34], "Itália|Santa Clara de Assis": [43.07, 12.62], "Itália|Asti": [44.9, 8.21], "Itália|Bagno di Romagna": [43.84, 11.96], "Itália|Bolsena": [42.64, 11.99], "Itália|Canosio": [44.46, 7.28], "Itália|Cascia": [42.72, 13.01], "Itália|Cava dei Tirreni": [40.7, 14.71], "Itália|Dronero": [44.47, 7.36], "Itália|São Mauro La Bruca": [40.12, 15.29], "Itália|Ferrara": [44.84, 11.62], "Itália|Florença": [43.77, 11.26], "Itália|Gruaro (Valvasone)": [45.83, 12.84], "Itália|Lanciano": [42.23, 14.39], "Itália|Macerata": [43.3, 13.45], "Itália|Mogoro": [39.68, 8.78], "Itália|Morrovalle": [43.32, 13.59], "Itália|Offida": [42.94, 13.69], "Itália|Patierno (Nàpoles)": [40.88, 14.29], "Itália|Rimini": [44.07, 12.57], "Itália|Roma": [41.9, 12.5], "Itália|Rosano": [43.73, 11.38], "Itália|São Pedro Damião": [41.9, 12.5], "Itália|Salzano": [45.52, 12.1], "Itália|Scala": [40.66, 14.61], "Itália|Siena": [43.32, 11.33], "Itália|Trani": [41.28, 16.42], "Itália|Turim": [45.07, 7.69], "Itália|Veroli": [41.69, 13.42], "Itália|Volterra": [43.4, 10.86],
+  "México|Tixtla": [17.57, -99.4],
+  "Holanda|Alkmaar": [52.63, 4.75], "Holanda|Amsterdam": [52.37, 4.89], "Holanda|Bergen": [52.67, 4.7], "Holanda|Boxmeer": [51.65, 5.95], "Holanda|Boxtel-Hoogstraten": [51.59, 5.33], "Holanda|Breda-Niervaart": [51.57, 4.77], "Holanda|Meerssen": [50.89, 5.75], "Holanda|Stiphout": [51.53, 5.57],
+  "Peru|Eten": [-6.92, -79.86], "Polônia|Cracòvia": [50.06, 19.94], "Polônia|Glotowo": [54.12, 20.29], "Polônia|Legnica": [51.21, 16.16], "Polônia|Poznan": [52.41, 16.93], "Polônia|Sokółka 2008": [53.41, 23.5],
+  "Portugal|Santarém": [39.24, -8.69],
+  "Espanha|Alboraya-Almacéra": [39.5, -0.35], "Espanha|Alcalà": [40.48, -3.36], "Espanha|Alcoy": [38.7, -0.47], "Espanha|Caravaca de la Cruz": [38.11, -1.86], "Espanha|Cimballa": [41.1, -1.78], "Espanha|Daroca": [41.11, -1.41], "Espanha|Gerona": [41.98, 2.82], "Espanha|Gorkum-El Escorial": [40.59, -4.15], "Espanha|Guadalupe": [39.45, -5.33], "Espanha|Ivorra": [41.77, 1.39], "Espanha|Moncada": [39.55, -0.4], "Espanha|Montserrat": [41.59, 1.83], "Espanha|O'Cebreiro": [42.71, -7.04], "Espanha|Onil": [38.63, -0.67], "Espanha|Ponferrada": [42.55, -6.6], "Espanha|S. Juan de las Abadesas": [42.23, 2.28], "Espanha|Silla": [39.36, -0.41], "Espanha|Valença": [39.47, -0.38], "Espanha|Zaragoza": [41.65, -0.89],
+  "Suíça|Ettiswil": [47.15, 8.02], "Venezuela|Betania": [10.16, -67.72],
+};
+
+const atlasRegions = {
+  "Argentina": "americas", "Brasil": "americas", "Colômbia": "americas", "Ilha de Martinica": "americas", "México": "americas", "Peru": "americas", "Venezuela": "americas",
+  "Áustria": "europa", "Bélgica": "europa", "Croácia": "europa", "França": "europa", "Alemanha": "europa", "Itália": "europa", "Holanda": "europa", "Polônia": "europa", "Portugal": "europa", "Espanha": "europa", "Suíça": "europa",
+  "Egito": "africa", "Ilha Reunião": "africa", "Índia": "asia",
+};
+
+const atlasCityPoints = Object.entries(atlasCityCoordinates).map(([key, coords]) => {
+  const [country, city] = key.split("|");
+  const group = directory.find((item) => item.title === country);
+  const records = group?.items.filter((item) => item.split(",")[0].trim() === city) ?? [];
+  return { country, city, coords, region: atlasRegions[country], records };
+}).filter((point) => point.records.length > 0);
+function openDirectoryGroup(title) {
+  const group = [...document.querySelectorAll("[data-group]")].find(
+    (item) => item.querySelector("h3")?.textContent.trim() === title,
+  );
+  if (!group) return;
+
+  group.classList.remove("is-collapsed");
+  const toggle = group.querySelector("[data-group-toggle]");
+  if (toggle) {
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", `Ocultar itens de ${title}`);
+    toggle.title = "Ocultar itens";
+  }
+  group.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function initializeAtlas() {
+  const container = document.querySelector("#world-map");
+  if (!container) return;
+  if (!window.maplibregl) {
+    container.innerHTML = '<div class="atlas-unavailable">O mapa real não pôde ser carregado. Verifique sua conexão e recarregue a página.</div>';
+    return;
+  }
+
+  container.innerHTML = '<div id="maplibre-map" aria-label="Mapa interativo dos milagres eucarísticos"></div>';
+  const atlasTitle = document.querySelector("#mapa-titulo");
+  const viewButtons = [...document.querySelectorAll("[data-atlas-view]")];
+  const map = new maplibregl.Map({ container: "maplibre-map", style: "https://tiles.openfreemap.org/styles/liberty", center: [10, 18], zoom: 1.15, minZoom: 1, maxZoom: 10, attributionControl: true });
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+
+  let markers = [];
+  let activeView = "mundo";
+  const clearMarkers = () => { markers.forEach(({ marker, popup }) => { marker.remove(); popup.remove(); }); markers = []; };
+  const selectMarker = (entry) => {
+    markers.forEach(({ element, popup }) => { if (element !== entry.element) { element.classList.remove("is-selected", "is-focused"); popup.remove(); } });
+    entry.element.classList.add("is-selected");
+    entry.popup.addTo(map);
+  };
+  const addMarker = (point) => {
+    const element = document.createElement("button");
+    const total = point.records.length;
+    element.type = "button";
+    element.className = "atlas-city-pin";
+    element.textContent = String(total);
+    element.title = `${point.city}, ${point.country}`;
+    element.setAttribute("aria-label", `${point.city}, ${point.country}: ${total} registro${total === 1 ? "" : "s"}`);
+    const label = `${point.city}, ${point.country}`;
+    const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 23, className: "atlas-country-popup" }).setLngLat([point.coords[1], point.coords[0]]).setText(label);
+    const marker = new maplibregl.Marker({ element, anchor: "center" }).setLngLat([point.coords[1], point.coords[0]]).addTo(map);
+    const entry = { point, element, marker, popup };
+    element.addEventListener("click", () => {
+      if (!element.classList.contains("is-selected")) { selectMarker(entry); return; }
+      if (!element.classList.contains("is-focused")) { element.classList.add("is-focused"); map.flyTo({ center: [point.coords[1], point.coords[0]], zoom: Math.max(map.getZoom(), 6.2), essential: true }); return; }
+      openDirectoryGroup(point.country);
+    });
+    markers.push(entry);
+  };
+  const selectAtlasView = (viewName) => {
+    const view = atlasViews[viewName] ?? atlasViews.mundo;
+    activeView = viewName;
+    clearMarkers();
+    if (atlasTitle) atlasTitle.textContent = view.label;
+    map.fitBounds(view.bounds, { padding: 44, duration: 650, maxZoom: viewName === "mundo" ? 1.7 : 4.2 });
+    atlasCityPoints.filter((point) => viewName === "mundo" || point.region === viewName).forEach(addMarker);
+    viewButtons.forEach((button) => { const active = button.dataset.atlasView === viewName; button.classList.toggle("is-active", active); button.setAttribute("aria-pressed", String(active)); });
+  };
+  viewButtons.forEach((button) => button.addEventListener("click", () => selectAtlasView(button.dataset.atlasView)));
+  map.on("load", () => selectAtlasView(activeView));
+}renderSupporting();
 renderDirectory();
+initializeAtlas();
 searchInput.addEventListener("input", applySearch);
+directoryRoot.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-group-toggle]");
+  if (!button) return;
+
+  const group = button.closest("[data-group]");
+  const collapsed = group.classList.toggle("is-collapsed");
+  const title = group.querySelector("h3")?.textContent ?? "este grupo";
+  button.setAttribute("aria-expanded", String(!collapsed));
+  button.setAttribute("aria-label", `${collapsed ? "Exibir" : "Ocultar"} itens de ${title}`);
+  button.title = collapsed ? "Exibir itens" : "Ocultar itens";
+});
