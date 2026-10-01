@@ -482,6 +482,15 @@ function initializeAtlas() {
 
   let markers = [];
   let activeView = "mundo";
+  document.addEventListener("click", (event) => {
+    const clickedMarker = markers.some(({ element }) => element.contains(event.target));
+    const clickedPopup = markers.some(({ popup }) => popup.isOpen() && popup.getElement().contains(event.target));
+    if (clickedMarker || clickedPopup) return;
+    markers.forEach(({ element, popup }) => {
+      element.classList.remove("is-selected", "is-focused");
+      popup.remove();
+    });
+  });
   const clearMarkers = () => { markers.forEach(({ marker, popup }) => { marker.remove(); popup.remove(); }); markers = []; };
   const selectMarker = (entry) => {
     markers.forEach(({ element, popup }) => { if (element !== entry.element) { element.classList.remove("is-selected", "is-focused"); popup.remove(); } });
